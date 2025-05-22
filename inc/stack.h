@@ -11,7 +11,8 @@ public:
     Stack(int size);
     ~Stack();
     bool isEmpty();
-    Status push(int data);
-    int pop();
-    int peek();
+    Status push(T data);
+    T pop();
+    T peek();
+    int getCount();
 };

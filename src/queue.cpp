@@ -2,15 +2,16 @@
 #include "../inc/queue.h"
 
 using namespace std;
-
-Queue::Queue(int size){
+template<class T>
+Queue<T>::Queue(int size){
     this->size = size;
     front = rear = new QueueNode;
     front->next = nullptr;
     count = 0;
 }
 
-Queue::~Queue(){
+template<class T>
+Queue<T>::~Queue(){
     while (!isEmpty()){
         dequeue(); 
     }
@@ -19,11 +20,13 @@ Queue::~Queue(){
     count = 0;
 }
 
-bool Queue::isEmpty(){
+template<class T>
+bool Queue<T>::isEmpty(){
     return count == 0; 
 }
 
-void Queue::enqueue(int data){
+template<class T>
+void Queue<T>::enqueue(T data){
     if (count == size){
         cout << "Queue is full" << endl;
         return; 
@@ -43,14 +46,15 @@ void Queue::enqueue(int data){
     return;
 }
 
-int Queue::dequeue(){
+template<class T>
+T Queue<T>::dequeue(){
     if (isEmpty()){
         cout << "Queue is empty" << endl;
         return ERROR;
     }
     else {
         QueueNode* temp = front;
-        int tempData = temp->data;
+        T tempData = temp->data;
         front = front->next;
         delete temp;
         count--;
@@ -58,7 +62,8 @@ int Queue::dequeue(){
     } 
 }
 
-int Queue::peek(){
+template<class T>
+T Queue<T>::peek(){
     if (isEmpty()){
         cout << "Queue is empty" << endl;
         return ERROR;

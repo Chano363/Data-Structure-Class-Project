@@ -21,5 +21,7 @@ public:
     ~parkingLotManagingSystem();
     Status setCost(int cost);
     Status setCapacity(int capacity);
-    Status arrive(int carNumber);
+    Status arrive(int carNumber, int entryTime);
+    Status depart(int carNumber, int exitTime);
+
 };

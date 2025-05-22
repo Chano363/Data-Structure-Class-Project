@@ -16,7 +16,8 @@ public:
     Queue(int size);
     ~Queue();
     bool isEmpty();
-    void enqueue(int data);
-    int dequeue();
-    int peek();
+    void enqueue(T data);
+    T dequeue();
+    T peek();
+    int getCount();
 };
