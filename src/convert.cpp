@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "../inc/parkingLotManagingSystem.h"
+#include "parkingLotManagingSystem.h"
 
 namespace py = pybind11;
 

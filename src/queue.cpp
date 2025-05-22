@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../inc/queue.h"
+#include "queue.h"
+#include <stdexcept>
 
 
 using namespace std;
@@ -50,8 +51,7 @@ void Queue<T>::enqueue(T data){
 template<class T>
 T Queue<T>::dequeue(){
     if (isEmpty()){
-        cout << "Queue is empty" << endl;
-        return ERROR;
+        throw runtime_error("Queue is empty");
     }
     else {
         QueueNode* temp = front;
@@ -66,12 +66,16 @@ T Queue<T>::dequeue(){
 template<class T>
 T Queue<T>::peek(){
     if (isEmpty()){
-        cout << "Queue is empty" << endl;
-        return ERROR;
+        throw runtime_error("Queue is empty");
     }
     else {
         return front->data;
     } 
+}
+
+template<class T>
+int Queue<T>::getCount(){
+    return count;
 }
 
 template class Queue<ParkingInfo>;

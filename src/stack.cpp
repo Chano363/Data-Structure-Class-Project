@@ -1,6 +1,7 @@
 #include<iostream>
-#include"../inc/stack.h"
-#include"../inc/common.h"
+#include"stack.h"
+#include"common.h"
+#include <stdexcept>
 
 using namespace std;
 template<class T>
@@ -8,18 +9,10 @@ Stack<T>::Stack(int size){
     this->size = size;
     top = -1;
     count = 0;
-    data = new int[size];
-    if (data == NULL){
-        cout << "Memory allocation failed" << endl;
-        return; 
-    }
-    count = 0;
 }
 
 template<class T>
-Stack<T>::~Stack(){
-    delete[] data; 
-}
+Stack<T>::~Stack(){}
 
 template<class T>
 bool Stack<T>::isEmpty(){
@@ -42,8 +35,7 @@ Status Stack<T>::push(T data){
 template<class T>
 T Stack<T>::pop(){
     if (isEmpty()){
-        cout << "Stack is empty" << endl;
-        return ERROR; 
+        throw runtime_error("Stack is empty");
     } 
     else {
         T temp = data[top];
@@ -56,8 +48,7 @@ T Stack<T>::pop(){
 template<class T>
 T Stack<T>::peek(){
     if (isEmpty()){
-        cout << "Stack is empty" << endl;
-        return ERROR; 
+        throw runtime_error("Stack is empty");
     } 
     else {
         return data[top]; 

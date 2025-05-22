@@ -4,8 +4,8 @@ CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: \
  D:/python3.12.4/Lib/site-packages/pybind11/include/pybind11/detail/class.h \
  D:/python3.12.4/Lib/site-packages/pybind11/include/pybind11/attr.h \
  D:/python3.12.4/Lib/site-packages/pybind11/include/pybind11/detail/common.h \
- C:/Python313/include/Python.h C:/Python313/include/patchlevel.h \
- C:/Python313/include/pyconfig.h D:/Code/MinGW/ucrt64/include/io.h \
+ D:/python3.12.4/include/Python.h D:/python3.12.4/include/patchlevel.h \
+ D:/python3.12.4/include/pyconfig.h D:/Code/MinGW/ucrt64/include/io.h \
  D:/Code/MinGW/ucrt64/include/crtdefs.h \
  D:/Code/MinGW/ucrt64/include/corecrt.h \
  D:/Code/MinGW/ucrt64/include/_mingw.h \
@@ -20,7 +20,7 @@ CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: \
  D:/Code/MinGW/ucrt64/include/corecrt_stdio_config.h \
  D:/Code/MinGW/ucrt64/include/swprintf.inl \
  D:/Code/MinGW/ucrt64/include/sec_api/stdio_s.h \
- C:/Python313/include/pymacconfig.h D:/Code/MinGW/ucrt64/include/assert.h \
+ D:/python3.12.4/include/pymacconfig.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/stdlib.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/cstdlib \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -36,11 +36,15 @@ CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: \
  D:/Code/MinGW/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
  D:/Code/MinGW/ucrt64/include/errno.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/bits/std_abs.h \
- D:/Code/MinGW/ucrt64/include/inttypes.h \
- D:/Code/MinGW/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
- D:/Code/MinGW/ucrt64/include/stdint.h \
  D:/Code/MinGW/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
  D:/Code/MinGW/ucrt64/include/stddef.h \
+ D:/Code/MinGW/ucrt64/include/assert.h \
+ D:/Code/MinGW/ucrt64/include/wchar.h \
+ D:/Code/MinGW/ucrt64/include/_mingw_stat64.h \
+ D:/Code/MinGW/ucrt64/include/sec_api/wchar_s.h \
+ D:/python3.12.4/include/pyport.h D:/Code/MinGW/ucrt64/include/inttypes.h \
+ D:/Code/MinGW/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
+ D:/Code/MinGW/ucrt64/include/stdint.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/math.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/cmath \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/bits/requires_hosted.h \
@@ -48,101 +52,113 @@ CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/ext/type_traits.h \
  D:/Code/MinGW/ucrt64/include/math.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/bits/version.h \
+ D:/Code/MinGW/ucrt64/include/time.h \
+ D:/Code/MinGW/ucrt64/include/sys/timeb.h \
+ D:/Code/MinGW/ucrt64/include/sec_api/sys/timeb_s.h \
+ D:/Code/MinGW/ucrt64/include/_timeval.h \
+ D:/Code/MinGW/ucrt64/include/pthread_time.h \
+ D:/Code/MinGW/ucrt64/include/sys/stat.h \
+ D:/Code/MinGW/ucrt64/include/sys/types.h \
+ D:/python3.12.4/include/exports.h D:/python3.12.4/include/pymacro.h \
+ D:/python3.12.4/include/pymath.h D:/python3.12.4/include/pymem.h \
+ D:/python3.12.4/include/cpython/pymem.h \
+ D:/python3.12.4/include/pytypedefs.h D:/python3.12.4/include/pybuffer.h \
+ D:/python3.12.4/include/object.h D:/python3.12.4/include/pystats.h \
+ D:/python3.12.4/include/cpython/object.h \
+ D:/python3.12.4/include/objimpl.h \
+ D:/python3.12.4/include/cpython/objimpl.h \
+ D:/python3.12.4/include/typeslots.h D:/python3.12.4/include/pyhash.h \
+ D:/python3.12.4/include/cpython/pydebug.h \
+ D:/python3.12.4/include/bytearrayobject.h \
+ D:/python3.12.4/include/cpython/bytearrayobject.h \
+ D:/python3.12.4/include/bytesobject.h \
  D:/Code/MinGW/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
  D:/Code/MinGW/ucrt64/include/stdarg.h \
  D:/Code/MinGW/ucrt64/include/_mingw_stdarg.h \
- D:/Code/MinGW/ucrt64/include/wchar.h \
- D:/Code/MinGW/ucrt64/include/_mingw_stat64.h \
- D:/Code/MinGW/ucrt64/include/sec_api/wchar_s.h \
- D:/Code/MinGW/ucrt64/include/sys/types.h \
- D:/Code/MinGW/ucrt64/include/ctype.h C:/Python313/include/pyport.h \
- C:/Python313/include/exports.h C:/Python313/include/pymacro.h \
- C:/Python313/include/pymath.h C:/Python313/include/pymem.h \
- C:/Python313/include/cpython/pymem.h C:/Python313/include/pytypedefs.h \
- C:/Python313/include/pybuffer.h C:/Python313/include/pystats.h \
- C:/Python313/include/pyatomic.h C:/Python313/include/cpython/pyatomic.h \
- C:/Python313/include/cpython/pyatomic_gcc.h C:/Python313/include/lock.h \
- C:/Python313/include/cpython/lock.h C:/Python313/include/object.h \
- C:/Python313/include/cpython/object.h C:/Python313/include/objimpl.h \
- C:/Python313/include/cpython/objimpl.h C:/Python313/include/typeslots.h \
- C:/Python313/include/pyhash.h C:/Python313/include/cpython/pyhash.h \
- C:/Python313/include/cpython/pydebug.h \
- C:/Python313/include/bytearrayobject.h \
- C:/Python313/include/cpython/bytearrayobject.h \
- C:/Python313/include/bytesobject.h \
- C:/Python313/include/cpython/bytesobject.h \
- C:/Python313/include/unicodeobject.h \
- C:/Python313/include/cpython/unicodeobject.h \
- C:/Python313/include/pyerrors.h C:/Python313/include/cpython/pyerrors.h \
- C:/Python313/include/longobject.h \
- C:/Python313/include/cpython/longobject.h \
- C:/Python313/include/cpython/longintrepr.h \
- C:/Python313/include/boolobject.h C:/Python313/include/floatobject.h \
- C:/Python313/include/cpython/floatobject.h \
- C:/Python313/include/complexobject.h \
- C:/Python313/include/cpython/complexobject.h \
- C:/Python313/include/rangeobject.h C:/Python313/include/memoryobject.h \
- C:/Python313/include/cpython/memoryobject.h \
- C:/Python313/include/tupleobject.h \
- C:/Python313/include/cpython/tupleobject.h \
- C:/Python313/include/listobject.h \
- C:/Python313/include/cpython/listobject.h \
- C:/Python313/include/dictobject.h \
- C:/Python313/include/cpython/dictobject.h \
- C:/Python313/include/cpython/odictobject.h \
- C:/Python313/include/enumobject.h C:/Python313/include/setobject.h \
- C:/Python313/include/cpython/setobject.h \
- C:/Python313/include/methodobject.h \
- C:/Python313/include/cpython/methodobject.h \
- C:/Python313/include/moduleobject.h C:/Python313/include/monitoring.h \
- C:/Python313/include/cpython/monitoring.h \
- C:/Python313/include/cpython/funcobject.h \
- C:/Python313/include/cpython/classobject.h \
- C:/Python313/include/fileobject.h \
- C:/Python313/include/cpython/fileobject.h \
- C:/Python313/include/pycapsule.h C:/Python313/include/cpython/code.h \
- C:/Python313/include/pyframe.h C:/Python313/include/cpython/pyframe.h \
- C:/Python313/include/traceback.h \
- C:/Python313/include/cpython/traceback.h \
- C:/Python313/include/sliceobject.h \
- C:/Python313/include/cpython/cellobject.h \
- C:/Python313/include/iterobject.h \
- C:/Python313/include/cpython/initconfig.h C:/Python313/include/pystate.h \
- C:/Python313/include/cpython/pystate.h \
- C:/Python313/include/cpython/genobject.h \
- C:/Python313/include/descrobject.h \
- C:/Python313/include/cpython/descrobject.h \
- C:/Python313/include/genericaliasobject.h \
- C:/Python313/include/warnings.h C:/Python313/include/cpython/warnings.h \
- C:/Python313/include/weakrefobject.h \
- C:/Python313/include/cpython/weakrefobject.h \
- C:/Python313/include/structseq.h \
- C:/Python313/include/cpython/picklebufobject.h \
- C:/Python313/include/cpython/pytime.h C:/Python313/include/codecs.h \
- C:/Python313/include/pythread.h C:/Python313/include/cpython/pythread.h \
- C:/Python313/include/cpython/context.h C:/Python313/include/modsupport.h \
- C:/Python313/include/cpython/modsupport.h C:/Python313/include/compile.h \
- C:/Python313/include/cpython/compile.h C:/Python313/include/pythonrun.h \
- C:/Python313/include/cpython/pythonrun.h \
- C:/Python313/include/pylifecycle.h \
- C:/Python313/include/cpython/pylifecycle.h C:/Python313/include/ceval.h \
- C:/Python313/include/cpython/ceval.h C:/Python313/include/sysmodule.h \
- C:/Python313/include/cpython/sysmodule.h C:/Python313/include/osmodule.h \
- C:/Python313/include/intrcheck.h C:/Python313/include/import.h \
- C:/Python313/include/cpython/import.h C:/Python313/include/abstract.h \
- C:/Python313/include/cpython/abstract.h \
- C:/Python313/include/bltinmodule.h \
- C:/Python313/include/critical_section.h \
- C:/Python313/include/cpython/critical_section.h \
- C:/Python313/include/cpython/pyctype.h C:/Python313/include/pystrtod.h \
- C:/Python313/include/pystrcmp.h C:/Python313/include/fileutils.h \
- D:/Code/MinGW/ucrt64/include/sys/stat.h \
- C:/Python313/include/cpython/fileutils.h \
- C:/Python313/include/cpython/pyfpe.h \
- C:/Python313/include/cpython/tracemalloc.h \
- C:/Python313/include/frameobject.h \
- C:/Python313/include/cpython/frameobject.h \
- C:/Python313/include/pythread.h \
+ D:/python3.12.4/include/cpython/bytesobject.h \
+ D:/python3.12.4/include/unicodeobject.h \
+ D:/Code/MinGW/ucrt64/include/ctype.h \
+ D:/python3.12.4/include/cpython/unicodeobject.h \
+ D:/python3.12.4/include/cpython/initconfig.h \
+ D:/python3.12.4/include/pystate.h \
+ D:/python3.12.4/include/cpython/pystate.h \
+ D:/python3.12.4/include/pyerrors.h \
+ D:/python3.12.4/include/cpython/pyerrors.h \
+ D:/python3.12.4/include/longobject.h \
+ D:/python3.12.4/include/cpython/longobject.h \
+ D:/python3.12.4/include/cpython/longintrepr.h \
+ D:/python3.12.4/include/boolobject.h \
+ D:/python3.12.4/include/floatobject.h \
+ D:/python3.12.4/include/cpython/floatobject.h \
+ D:/python3.12.4/include/complexobject.h \
+ D:/python3.12.4/include/cpython/complexobject.h \
+ D:/python3.12.4/include/rangeobject.h \
+ D:/python3.12.4/include/memoryobject.h \
+ D:/python3.12.4/include/cpython/memoryobject.h \
+ D:/python3.12.4/include/tupleobject.h \
+ D:/python3.12.4/include/cpython/tupleobject.h \
+ D:/python3.12.4/include/listobject.h \
+ D:/python3.12.4/include/cpython/listobject.h \
+ D:/python3.12.4/include/dictobject.h \
+ D:/python3.12.4/include/cpython/dictobject.h \
+ D:/python3.12.4/include/cpython/odictobject.h \
+ D:/python3.12.4/include/enumobject.h D:/python3.12.4/include/setobject.h \
+ D:/python3.12.4/include/cpython/setobject.h \
+ D:/python3.12.4/include/methodobject.h \
+ D:/python3.12.4/include/cpython/methodobject.h \
+ D:/python3.12.4/include/moduleobject.h \
+ D:/python3.12.4/include/cpython/funcobject.h \
+ D:/python3.12.4/include/cpython/classobject.h \
+ D:/python3.12.4/include/fileobject.h \
+ D:/python3.12.4/include/cpython/fileobject.h \
+ D:/python3.12.4/include/pycapsule.h \
+ D:/python3.12.4/include/cpython/code.h D:/python3.12.4/include/pyframe.h \
+ D:/python3.12.4/include/cpython/pyframe.h \
+ D:/python3.12.4/include/traceback.h \
+ D:/python3.12.4/include/cpython/traceback.h \
+ D:/python3.12.4/include/sliceobject.h \
+ D:/python3.12.4/include/cpython/cellobject.h \
+ D:/python3.12.4/include/iterobject.h \
+ D:/python3.12.4/include/cpython/genobject.h \
+ D:/python3.12.4/include/descrobject.h \
+ D:/python3.12.4/include/cpython/descrobject.h \
+ D:/python3.12.4/include/genericaliasobject.h \
+ D:/python3.12.4/include/warnings.h \
+ D:/python3.12.4/include/cpython/warnings.h \
+ D:/python3.12.4/include/weakrefobject.h \
+ D:/python3.12.4/include/cpython/weakrefobject.h \
+ D:/python3.12.4/include/structseq.h \
+ D:/python3.12.4/include/cpython/picklebufobject.h \
+ D:/python3.12.4/include/cpython/pytime.h \
+ D:/python3.12.4/include/codecs.h D:/python3.12.4/include/pythread.h \
+ D:/python3.12.4/include/cpython/pythread.h \
+ D:/python3.12.4/include/cpython/context.h \
+ D:/python3.12.4/include/modsupport.h \
+ D:/python3.12.4/include/cpython/modsupport.h \
+ D:/python3.12.4/include/compile.h \
+ D:/python3.12.4/include/cpython/compile.h \
+ D:/python3.12.4/include/pythonrun.h \
+ D:/python3.12.4/include/cpython/pythonrun.h \
+ D:/python3.12.4/include/pylifecycle.h \
+ D:/python3.12.4/include/cpython/pylifecycle.h \
+ D:/python3.12.4/include/ceval.h D:/python3.12.4/include/cpython/ceval.h \
+ D:/python3.12.4/include/sysmodule.h \
+ D:/python3.12.4/include/cpython/sysmodule.h \
+ D:/python3.12.4/include/osmodule.h D:/python3.12.4/include/intrcheck.h \
+ D:/python3.12.4/include/import.h \
+ D:/python3.12.4/include/cpython/import.h \
+ D:/python3.12.4/include/abstract.h \
+ D:/python3.12.4/include/cpython/abstract.h \
+ D:/python3.12.4/include/bltinmodule.h \
+ D:/python3.12.4/include/cpython/pyctype.h \
+ D:/python3.12.4/include/pystrtod.h D:/python3.12.4/include/pystrcmp.h \
+ D:/python3.12.4/include/fileutils.h \
+ D:/python3.12.4/include/cpython/fileutils.h \
+ D:/python3.12.4/include/cpython/pyfpe.h \
+ D:/python3.12.4/include/tracemalloc.h \
+ D:/python3.12.4/include/frameobject.h \
+ D:/python3.12.4/include/cpython/frameobject.h \
+ D:/python3.12.4/include/pythread.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/cstddef \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/cstring \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/exception \
@@ -211,11 +227,6 @@ CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: \
  D:/Code/MinGW/ucrt64/include/corecrt_startup.h \
  D:/Code/MinGW/ucrt64/include/signal.h \
  D:/Code/MinGW/ucrt64/include/pthread_signal.h \
- D:/Code/MinGW/ucrt64/include/time.h \
- D:/Code/MinGW/ucrt64/include/sys/timeb.h \
- D:/Code/MinGW/ucrt64/include/sec_api/sys/timeb_s.h \
- D:/Code/MinGW/ucrt64/include/_timeval.h \
- D:/Code/MinGW/ucrt64/include/pthread_time.h \
  D:/Code/MinGW/ucrt64/include/pthread_compat.h \
  D:/Code/MinGW/ucrt64/include/pthread_unistd.h \
  D:/Code/MinGW/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/atomic_word.h \

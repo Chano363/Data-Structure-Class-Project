@@ -8,8 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj"
   "CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj.d"
   "libparkingLotManagingSystem.dll.a"
-  "parkingLotManagingSystem.cp313-win_amd64.pyd"
-  "parkingLotManagingSystem.cp313-win_amd64.pyd.manifest"
+  "parkingLotManagingSystem.cp312-win_amd64.pyd"
+  "parkingLotManagingSystem.cp312-win_amd64.pyd.manifest"
   "parkingLotManagingSystem.pdb"
 )
 

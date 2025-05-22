@@ -27,7 +27,6 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//CXX compiler
 CMAKE_CXX_COMPILER:STRING=D:/Code/MinGW/ucrt64/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
@@ -56,7 +55,6 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
-//C compiler
 CMAKE_C_COMPILER:STRING=D:/Code/MinGW/ucrt64/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
@@ -106,6 +104,8 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/github/Data-Structure-Class-Project/build/CMakeFiles/pkgRedirects
 
+CMAKE_GENERATOR:STRING=MinGW Makefiles
+
 //Convert GNU import libraries to MS format (requires Visual Studio)
 CMAKE_GNUtoMS:BOOL=OFF
 
@@ -115,8 +115,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/ParkingLotManagingSystem
 //Path to a program.
 CMAKE_LINKER:FILEPATH=D:/Code/MinGW/ucrt64/bin/ld.exe
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=D:/Code/MinGW/ucrt64/bin/mingw32-make.exe
+CMAKE_MAKE_PROGRAM:STRING=D:/Code/MinGW/ucrt64/bin/mingw32-make.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -330,7 +329,6 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
-CMAKE_GENERATOR:INTERNAL=MinGW Makefiles
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -414,40 +412,40 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Python
-FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[C:/Python313/python.exe][C:/Python313/libs/python313.lib][C:/Python313/include][cfound components: Interpreter Development Development.Module Development.Embed ][v3.13.1()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[D:/python3.12.4/python.exe][D:/python3.12.4/libs/python312.lib][D:/python3.12.4/include][cfound components: Interpreter Development Development.Module Development.Embed ][v3.12.4(3.12)]
 //Python executable during the last CMake run
-PYBIND11_PYTHON_EXECUTABLE_LAST:INTERNAL=C:/Python313/python.exe
+PYBIND11_PYTHON_EXECUTABLE_LAST:INTERNAL=D:/python3.12.4/python.exe
 //Python debug status
 PYTHON_IS_DEBUG:INTERNAL=0
 PYTHON_MODULE_DEBUG_POSTFIX:INTERNAL=
-PYTHON_MODULE_EXTENSION:INTERNAL=.cp313-win_amd64.pyd
+PYTHON_MODULE_EXTENSION:INTERNAL=.cp312-win_amd64.pyd
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 _PYBIND11_CROSSCOMPILING:INTERNAL=OFF
 _Python:INTERNAL=Python
 //Compiler reason failure
 _Python_Compiler_REASON_FAILURE:INTERNAL=
-_Python_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=8bab5a3c64cca47a70fc500354e6470d
-_Python_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=8bab5a3c64cca47a70fc500354e6470d
+_Python_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=63d90f8d59249f5c56da2f0b831c36f2
+_Python_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=63d90f8d59249f5c56da2f0b831c36f2
 //Development reason failure
 _Python_Development_REASON_FAILURE:INTERNAL=
 //Path to a program.
-_Python_EXECUTABLE:INTERNAL=C:/Python313/python.exe
+_Python_EXECUTABLE:INTERNAL=D:/python3.12.4/python.exe
 //Path to a program.
 _Python_EXECUTABLE_DEBUG:INTERNAL=_Python_EXECUTABLE_DEBUG-NOTFOUND
 //Path to a file.
-_Python_INCLUDE_DIR:INTERNAL=C:/Python313/include
+_Python_INCLUDE_DIR:INTERNAL=D:/python3.12.4/include
 //Python Properties
-_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;13;1;64;<none>;cp313-win_amd64;;C:\Python313\Lib;C:\Python313\Lib;C:\Python313\Lib\site-packages;C:\Python313\Lib\site-packages
-_Python_INTERPRETER_SIGNATURE:INTERNAL=7e36546b5e31c248c960732ed52b5836
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;4;64;<none>;cp312-win_amd64;;D:\python3.12.4\Lib;D:\python3.12.4\Lib;D:\python3.12.4\Lib\site-packages;D:\python3.12.4\Lib\site-packages
+_Python_INTERPRETER_SIGNATURE:INTERNAL=6f38c63acaf71ee32715fc7e8e1c14a2
 //Path to a library.
 _Python_LIBRARY_DEBUG:INTERNAL=_Python_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
-_Python_LIBRARY_RELEASE:INTERNAL=C:/Python313/libs/python313.lib
+_Python_LIBRARY_RELEASE:INTERNAL=D:/python3.12.4/libs/python312.lib
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
 //Path to a library.
-_Python_RUNTIME_LIBRARY_RELEASE:INTERNAL=C:/Python313/python313.dll
+_Python_RUNTIME_LIBRARY_RELEASE:INTERNAL=D:/python3.12.4/python312.dll
 //Directories where pybind11 and possibly Python headers are located
-pybind11_INCLUDE_DIRS:INTERNAL=D:/python3.12.4/Lib/site-packages/pybind11/include;C:/Python313/include
+pybind11_INCLUDE_DIRS:INTERNAL=D:/python3.12.4/Lib/site-packages/pybind11/include;D:/python3.12.4/include
 

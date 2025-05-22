@@ -29,6 +29,17 @@ Status parkingLotManagingSystem::setCost(int cost)
     return OK;
 }
 
+Status parkingLotManagingSystem::setCapacity(int capacity)
+{
+    if (capacity < 0)
+    {
+        cout << "Capacity cannot be negative." << endl;
+        return ERROR;
+    }
+    this->capacity = capacity;
+    return OK; 
+}
+
 Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
 {
     // 车辆离开
@@ -102,4 +113,5 @@ Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
 Status parkingLotManagingSystem::test()
 {
     cout << 500 / 100 << endl;
+    return OK;
 }
