@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../inc/queue.h"
 
+
 using namespace std;
 template<class T>
 Queue<T>::Queue(int size){
@@ -72,3 +73,6 @@ T Queue<T>::peek(){
         return front->data;
     } 
 }
+
+template class Queue<ParkingInfo>;
+template class Queue<int>;

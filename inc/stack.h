@@ -1,12 +1,15 @@
 #pragma once
-#include"common.h"
+#include "common.h"
+#include <vector>
 
-template<class T>
-class Stack{
-int size;
-int count;
-int top;
-std::vector<T>data;
+template <class T>
+class Stack
+{
+    int size;
+    int count;
+    int top;
+    std::vector<T> data;
+
 public:
     Stack(int size);
     ~Stack();

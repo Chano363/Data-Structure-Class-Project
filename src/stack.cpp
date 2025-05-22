@@ -1,5 +1,6 @@
 #include<iostream>
 #include"../inc/stack.h"
+#include"../inc/common.h"
 
 using namespace std;
 template<class T>
@@ -67,3 +68,6 @@ template<class T>
 int Stack<T>::getCount(){
     return count;
 }
+
+template class Stack<int>;
+template class Stack<ParkingInfo>;

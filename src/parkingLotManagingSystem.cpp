@@ -78,6 +78,7 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
     {
         parkingStack->push(waitingQueue->dequeue());
     }
+    return OK;
 }
 
 Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
@@ -96,4 +97,9 @@ Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
         cout << "车辆" << temp.carNumber << "停在等待队列 " << waitingQueue->getCount() << " 号位" << endl;
     }
     return OK;
+}
+
+Status parkingLotManagingSystem::test()
+{
+    cout << 500 / 100 << endl;
 }

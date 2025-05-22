@@ -3,3 +3,10 @@
 #define ERROR 0
 const int maxSize = 100;
 using Status = int;
+
+struct ParkingInfo
+{
+    int carNumber;
+    int entryTime;
+    int exitTime;
+};

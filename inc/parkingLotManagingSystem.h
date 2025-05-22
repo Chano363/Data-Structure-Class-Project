@@ -4,18 +4,8 @@
 #include "stack.h"
 #include <vector>
 
-class parkingLotManagingSystem {
-    struct ParkingInfo {
-        int carNumber;
-        int entryTime;
-        int exitTime;
-    };
-int capacity;
-Queue<ParkingInfo> *waitingQueue;
-Stack<ParkingInfo> *parkingStack;
-Stack<int> *exitStack;
-std::vector<int> costs;
-int perHourCost;
+class parkingLotManagingSystem
+{
 public:
     parkingLotManagingSystem(int capacity = 2, int perHourCost = 10);
     ~parkingLotManagingSystem();
@@ -23,5 +13,13 @@ public:
     Status setCapacity(int capacity);
     Status arrive(int carNumber, int entryTime);
     Status depart(int carNumber, int exitTime);
+    Status test();
 
+private:
+    int capacity;
+    Queue<ParkingInfo> *waitingQueue;
+    Stack<ParkingInfo> *parkingStack;
+    Stack<int> *exitStack;
+    std::vector<int> costs;
+    int perHourCost;
 };
