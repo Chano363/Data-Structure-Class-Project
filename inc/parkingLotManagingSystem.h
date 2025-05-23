@@ -14,7 +14,10 @@ public:
     Status arrive(int carNumber, int entryTime);
     Status depart(int carNumber, int exitTime);
     Status test();
-
+    int getCount();
+    int getCapacity();
+    int getPerHourCost();
+    int getWaitingCount();
 private:
     int capacity;
     Queue<ParkingInfo> *waitingQueue;

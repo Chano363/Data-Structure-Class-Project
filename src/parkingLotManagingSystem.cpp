@@ -112,6 +112,26 @@ Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
 
 Status parkingLotManagingSystem::test()
 {
-    cout << 500 / 100 << endl;
+    cout << "The system is working normally." << endl;
     return OK;
+}
+
+int parkingLotManagingSystem::getCount()
+{
+    return parkingStack->getCount();
+}
+
+int parkingLotManagingSystem::getCapacity()
+{
+    return capacity;
+}
+
+int parkingLotManagingSystem::getPerHourCost()
+{
+    return perHourCost;
+}
+
+int parkingLotManagingSystem::getWaitingCount()
+{
+    return waitingQueue->getCount();
 }

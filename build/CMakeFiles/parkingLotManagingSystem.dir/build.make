@@ -73,60 +73,60 @@ CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj: CMakeFiles/parkingLot
 CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj: D:/github/Data-Structure-Class-Project/src/queue.cpp
 CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.obj -c D:\github\Data-Structure-Class-Project\src\queue.cpp
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.obj -c D:\github\Data-Structure-Class-Project\src\queue.cpp
 
 CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.i"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\queue.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.i
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\queue.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.i
 
 CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.s"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\queue.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.s
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\queue.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\queue.cpp.s
 
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/flags.make
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj: D:/github/Data-Structure-Class-Project/src/stack.cpp
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.obj -c D:\github\Data-Structure-Class-Project\src\stack.cpp
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.obj -c D:\github\Data-Structure-Class-Project\src\stack.cpp
 
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.i"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\stack.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.i
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\stack.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.i
 
 CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.s"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\stack.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.s
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\stack.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\stack.cpp.s
 
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/flags.make
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj: D:/github/Data-Structure-Class-Project/src/parkingLotManagingSystem.cpp
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.obj -c D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.obj -c D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp
 
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.i"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.i
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.i
 
 CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.s"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.s
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\parkingLotManagingSystem.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\parkingLotManagingSystem.cpp.s
 
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/flags.make
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: D:/github/Data-Structure-Class-Project/src/convert.cpp
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj: CMakeFiles/parkingLotManagingSystem.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.obj -c D:\github\Data-Structure-Class-Project\src\convert.cpp
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj -MF CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.obj.d -o CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.obj -c D:\github\Data-Structure-Class-Project\src\convert.cpp
 
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.i"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\convert.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.i
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\github\Data-Structure-Class-Project\src\convert.cpp > CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.i
 
 CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.s"
-	D:\Code\MinGW\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\convert.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.s
+	g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\github\Data-Structure-Class-Project\src\convert.cpp -o CMakeFiles\parkingLotManagingSystem.dir\src\convert.cpp.s
 
 # Object files for target parkingLotManagingSystem
 parkingLotManagingSystem_OBJECTS = \
@@ -138,20 +138,20 @@ parkingLotManagingSystem_OBJECTS = \
 # External object files for target parkingLotManagingSystem
 parkingLotManagingSystem_EXTERNAL_OBJECTS =
 
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/build.make
-parkingLotManagingSystem.cp312-win_amd64.pyd: D:/python3.12.4/libs/python312.lib
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/linkLibs.rsp
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/objects1.rsp
-parkingLotManagingSystem.cp312-win_amd64.pyd: CMakeFiles/parkingLotManagingSystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared module parkingLotManagingSystem.cp312-win_amd64.pyd"
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/build.make
+parkingLotManagingSystem.pyd: D:/python3.12.4/libs/python312.lib
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/linkLibs.rsp
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/objects1.rsp
+parkingLotManagingSystem.pyd: CMakeFiles/parkingLotManagingSystem.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared module parkingLotManagingSystem.pyd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\parkingLotManagingSystem.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/parkingLotManagingSystem.dir/build: parkingLotManagingSystem.cp312-win_amd64.pyd
+CMakeFiles/parkingLotManagingSystem.dir/build: parkingLotManagingSystem.pyd
 .PHONY : CMakeFiles/parkingLotManagingSystem.dir/build
 
 CMakeFiles/parkingLotManagingSystem.dir/clean:

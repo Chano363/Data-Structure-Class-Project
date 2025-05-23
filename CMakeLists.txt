@@ -2,11 +2,18 @@ cmake_minimum_required(VERSION 3.14)
 project(ParkingLotManagingSystem)
 
 set(CMAKE_STRIP "")
-set(CMAKE_GENERATOR "MinGW Makefiles" CACHE STRING "" FORCE)
-set(CMAKE_C_COMPILER "D:/Code/MinGW/ucrt64/bin/gcc.exe" CACHE STRING "" FORCE)
-set(CMAKE_CXX_COMPILER "D:/Code/MinGW/ucrt64/bin/g++.exe" CACHE STRING "" FORCE)
-set(CMAKE_MAKE_PROGRAM "D:/Code/MinGW/ucrt64/bin/mingw32-make.exe" CACHE STRING "" FORCE)
 
+# 从 PATH 中获取 MinGW 的路径
+find_program(MINGW_MAKE_PROGRAM mingw32-make.exe)
+if (NOT MINGW_MAKE_PROGRAM)
+    message(FATAL_ERROR "未找到 mingw32-make.exe，请确保 MinGW 已正确安装并添加到 PATH 环境变量中。")
+endif()
+
+# 设置 CMake 生成器和编译器路径
+set(CMAKE_GENERATOR "MinGW Makefiles" CACHE STRING "" FORCE)
+set(CMAKE_C_COMPILER "gcc.exe" CACHE STRING "" FORCE)
+set(CMAKE_CXX_COMPILER "g++.exe" CACHE STRING "" FORCE)
+set(CMAKE_MAKE_PROGRAM "${MINGW_MAKE_PROGRAM}" CACHE STRING "" FORCE)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -30,6 +37,11 @@ pybind11_add_module(parkingLotManagingSystem
     src/stack.cpp
     src/parkingLotManagingSystem.cpp
     src/convert.cpp
+)
+
+# 设置输出文件后缀为.pyd
+set_target_properties(parkingLotManagingSystem PROPERTIES
+    SUFFIX ".pyd"
 )
 
 # 设置目标包含目录
