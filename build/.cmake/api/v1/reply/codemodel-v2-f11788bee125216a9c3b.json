@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ParkingLotManagingSystem",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "parkingLotManagingSystem::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-parkingLotManagingSystem-Debug-b61099e304307844c7d1.json",
+					"name" : "parkingLotManagingSystem",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "parkingLotManagingSystem_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-parkingLotManagingSystem_static-Debug-20b95ead1ce8b25695d7.json",
+					"name" : "parkingLotManagingSystem_static",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_exe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_exe-Debug-3275be85641c42efc018.json",
+					"name" : "test_exe",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/github/Data-Structure-Class-Project/build",
+		"source" : "D:/github/Data-Structure-Class-Project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

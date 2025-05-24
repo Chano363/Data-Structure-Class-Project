@@ -1,0 +1,69 @@
+cmake_minimum_required(VERSION 3.14)
+project(ParkingLotManagingSystem)
+
+set(CMAKE_STRIP "")
+
+# 从 PATH 中获取 MinGW 的路径
+find_program(MINGW_MAKE_PROGRAM mingw32-make.exe)
+if (NOT MINGW_MAKE_PROGRAM)
+    message(FATAL_ERROR "未找到 mingw32-make.exe，请确保 MinGW 已正确安装并添加到 PATH 环境变量中。")
+endif()
+
+# 设置 CMake 生成器和编译器路径
+set(CMAKE_GENERATOR "MinGW Makefiles" CACHE STRING "" FORCE)
+set(CMAKE_C_COMPILER "gcc.exe" CACHE STRING "" FORCE)
+set(CMAKE_CXX_COMPILER "g++.exe" CACHE STRING "" FORCE)
+set(CMAKE_MAKE_PROGRAM "${MINGW_MAKE_PROGRAM}" CACHE STRING "" FORCE)
+# 设置C++标准
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# 添加pybind11路径
+list(APPEND CMAKE_PREFIX_PATH "D:/python3.12.4/Lib/site-packages/pybind11/share/cmake/pybind11")
+
+# 查找Python解释器和开发包
+find_package(Python 3.12 EXACT REQUIRED COMPONENTS Interpreter Development)
+
+# 查找系统安装的pybind11
+find_package(pybind11 REQUIRED)
+
+# 包含目录
+include_directories(inc)
+
+# 创建Python模块
+pybind11_add_module(parkingLotManagingSystem
+    src/queue.cpp
+    src/stack.cpp
+    src/parkingLotManagingSystem.cpp
+    src/convert.cpp
+)
+
+# 创建静态库
+add_library(parkingLotManagingSystem_static STATIC
+    src/queue.cpp
+    src/stack.cpp
+    src/parkingLotManagingSystem.cpp
+)
+
+# 添加独立可执行文件
+add_executable(test_exe src/test.cpp)
+target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+
+# 设置输出文件后缀为.pyd
+set_target_properties(parkingLotManagingSystem PROPERTIES
+    SUFFIX ".pyd"
+)
+
+# 设置目标包含目录
+target_include_directories(parkingLotManagingSystem PUBLIC ${CMAKE_SOURCE_DIR}/inc)
+
+# 设置输出目录
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# 设置编译选项
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options(-Wall -Wextra -O2)
+endif()
