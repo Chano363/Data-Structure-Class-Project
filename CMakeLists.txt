@@ -39,6 +39,17 @@ pybind11_add_module(parkingLotManagingSystem
     src/convert.cpp
 )
 
+# 创建静态库
+add_library(parkingLotManagingSystem_static STATIC
+    src/queue.cpp
+    src/stack.cpp
+    src/parkingLotManagingSystem.cpp
+)
+
+# 添加独立可执行文件
+add_executable(test_exe src/test.cpp)
+target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+
 # 设置输出文件后缀为.pyd
 set_target_properties(parkingLotManagingSystem PROPERTIES
     SUFFIX ".pyd"

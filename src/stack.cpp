@@ -27,7 +27,7 @@ Status Stack<T>::push(T data){
     } else {
         top++;
         count++;
-        this->data[top] = data;
+        this->data.push_back(data);
     }
     return OK; 
 }

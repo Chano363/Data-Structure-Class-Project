@@ -15,7 +15,7 @@ os.chdir("build")
 
 # 运行 CMake
 try:
-    subprocess.run(["cmake", "-G", "MinGW Makefiles", "..", "--debug-output"], check=True)
+    subprocess.run(["cmake", "-G", "MinGW Makefiles", ".."], check=True)
 except subprocess.CalledProcessError as e:
     print(f"CMake 配置失败: {e}")
     print("请检查 CMakeLists.txt 文件或环境变量配置。")

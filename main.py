@@ -14,6 +14,7 @@ class ParkingLotApp(QWidget):
     def __init__(self):
         super().__init__()
         self.plms = None  # 停车场管理系统实例
+        self.last_time = 0  # 记录上一次输入的时间
         self.initUI()
 
     def initUI(self):
@@ -205,6 +206,13 @@ class ParkingLotApp(QWidget):
             operation = operation.strip().upper()
             car_number = int(car_number.strip())
             time = int(time.strip())
+
+            # 检查时间是否升序
+            if time < self.last_time:
+                QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+                return
+            self.last_time = time  # 更新上一次输入的时间
+
         except ValueError:
             QMessageBox.warning(self, '错误', '输入格式无效！')
             return
@@ -220,7 +228,8 @@ class ParkingLotApp(QWidget):
             QMessageBox.information(self, '结束', '输入结束！')
         else:
             QMessageBox.warning(self, '错误', '无效的操作类型！')
-
+        # 清空输入框
+        self.console_input.clear()  
         # 更新状态显示
         self.update_status()
 

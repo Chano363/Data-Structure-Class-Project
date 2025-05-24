@@ -1,4 +1,4 @@
-#include "../inc/parkingLotManagingSystem.h"
+#include "parkingLotManagingSystem.h"
 #include <iostream>
 using namespace std;
 
@@ -60,7 +60,6 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
         temp = parkingStack->pop();
         if (temp.carNumber == carNumber)
         {
-            exitStack->push(temp.carNumber);
             found = true;
         }
         else
@@ -115,6 +114,41 @@ Status parkingLotManagingSystem::test()
     cout << "The system is working normally." << endl;
     return OK;
 }
+
+Status parkingLotManagingSystem::display()
+{
+    cout << "每小时停车费用: " << perHourCost << endl;
+    cout << "停车场容量: " << capacity << endl;
+    cout << "停车场中的车辆数量: " << parkingStack->getCount() << endl;
+    cout << "便道队列中的车辆数量: " << waitingQueue->getCount() << endl;
+    if(parkingStack->getCount() == 0){
+        cout << "停车场中没有车辆" << endl;
+    }
+    else {
+        cout << "停车场中的车辆为: " << endl;
+        for(int i = 0; i < parkingStack->getCount(); i++)
+        {
+            ParkingInfo temp = parkingStack->pop();
+            cout << "车辆" << temp.carNumber << "停在停车场 " << i << " 号位" << endl;
+            parkingStack->push(temp);
+        }
+    }
+    if(waitingQueue->getCount() == 0)
+    {
+        cout << "便道队列中没有车辆" << endl;
+    }
+    else {
+        cout << "便道队列中的车辆为: " << endl;
+        for(int i = 0; i < waitingQueue->getCount(); i++)
+        {
+            ParkingInfo temp = waitingQueue->dequeue();
+            cout << "车辆" << temp.carNumber << "停在等待队列 " << i << " 号位" << endl;
+            waitingQueue->enqueue(temp);
+        } 
+    }
+    return OK;
+}
+
 
 int parkingLotManagingSystem::getCount()
 {

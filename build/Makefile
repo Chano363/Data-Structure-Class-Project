@@ -128,6 +128,32 @@ parkingLotManagingSystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/build
 .PHONY : parkingLotManagingSystem/fast
 
+#=============================================================================
+# Target rules for targets named parkingLotManagingSystem_static
+
+# Build rule for target.
+parkingLotManagingSystem_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 parkingLotManagingSystem_static
+.PHONY : parkingLotManagingSystem_static
+
+# fast build rule for target.
+parkingLotManagingSystem_static/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/build
+.PHONY : parkingLotManagingSystem_static/fast
+
+#=============================================================================
+# Target rules for targets named test_exe
+
+# Build rule for target.
+test_exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_exe
+.PHONY : test_exe
+
+# fast build rule for target.
+test_exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/build
+.PHONY : test_exe/fast
+
 src/convert.obj: src/convert.cpp.obj
 .PHONY : src/convert.obj
 
@@ -158,6 +184,7 @@ src/parkingLotManagingSystem.obj: src/parkingLotManagingSystem.cpp.obj
 # target to build an object file
 src/parkingLotManagingSystem.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj
 .PHONY : src/parkingLotManagingSystem.cpp.obj
 
 src/parkingLotManagingSystem.i: src/parkingLotManagingSystem.cpp.i
@@ -166,6 +193,7 @@ src/parkingLotManagingSystem.i: src/parkingLotManagingSystem.cpp.i
 # target to preprocess a source file
 src/parkingLotManagingSystem.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.i
 .PHONY : src/parkingLotManagingSystem.cpp.i
 
 src/parkingLotManagingSystem.s: src/parkingLotManagingSystem.cpp.s
@@ -174,6 +202,7 @@ src/parkingLotManagingSystem.s: src/parkingLotManagingSystem.cpp.s
 # target to generate assembly for a file
 src/parkingLotManagingSystem.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.s
 .PHONY : src/parkingLotManagingSystem.cpp.s
 
 src/queue.obj: src/queue.cpp.obj
@@ -182,6 +211,7 @@ src/queue.obj: src/queue.cpp.obj
 # target to build an object file
 src/queue.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj
 .PHONY : src/queue.cpp.obj
 
 src/queue.i: src/queue.cpp.i
@@ -190,6 +220,7 @@ src/queue.i: src/queue.cpp.i
 # target to preprocess a source file
 src/queue.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.i
 .PHONY : src/queue.cpp.i
 
 src/queue.s: src/queue.cpp.s
@@ -198,6 +229,7 @@ src/queue.s: src/queue.cpp.s
 # target to generate assembly for a file
 src/queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.s
 .PHONY : src/queue.cpp.s
 
 src/stack.obj: src/stack.cpp.obj
@@ -206,6 +238,7 @@ src/stack.obj: src/stack.cpp.obj
 # target to build an object file
 src/stack.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj
 .PHONY : src/stack.cpp.obj
 
 src/stack.i: src/stack.cpp.i
@@ -214,6 +247,7 @@ src/stack.i: src/stack.cpp.i
 # target to preprocess a source file
 src/stack.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.i
 .PHONY : src/stack.cpp.i
 
 src/stack.s: src/stack.cpp.s
@@ -222,7 +256,32 @@ src/stack.s: src/stack.cpp.s
 # target to generate assembly for a file
 src/stack.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.s
 .PHONY : src/stack.cpp.s
+
+src/test.obj: src/test.cpp.obj
+.PHONY : src/test.obj
+
+# target to build an object file
+src/test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/src/test.cpp.obj
+.PHONY : src/test.cpp.obj
+
+src/test.i: src/test.cpp.i
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
 
 # Help Target
 help:
@@ -233,6 +292,8 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... parkingLotManagingSystem
+	@echo ... parkingLotManagingSystem_static
+	@echo ... test_exe
 	@echo ... src/convert.obj
 	@echo ... src/convert.i
 	@echo ... src/convert.s
@@ -245,6 +306,9 @@ help:
 	@echo ... src/stack.obj
 	@echo ... src/stack.i
 	@echo ... src/stack.s
+	@echo ... src/test.obj
+	@echo ... src/test.i
+	@echo ... src/test.s
 .PHONY : help
 
 

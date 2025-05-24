@@ -18,7 +18,6 @@ Queue<T>::~Queue(){
         dequeue(); 
     }
     delete front;
-    delete rear;
     count = 0;
 }
 

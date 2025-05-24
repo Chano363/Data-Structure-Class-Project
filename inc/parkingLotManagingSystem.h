@@ -14,6 +14,7 @@ public:
     Status arrive(int carNumber, int entryTime);
     Status depart(int carNumber, int exitTime);
     Status test();
+    Status display();
     int getCount();
     int getCapacity();
     int getPerHourCost();

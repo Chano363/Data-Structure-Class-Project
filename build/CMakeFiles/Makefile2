@@ -63,6 +63,8 @@ CMAKE_BINARY_DIR = D:\github\Data-Structure-Class-Project\build
 
 # The main recursive "all" target.
 all: CMakeFiles/parkingLotManagingSystem.dir/all
+all: CMakeFiles/parkingLotManagingSystem_static.dir/all
+all: CMakeFiles/test_exe.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,6 +73,8 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/parkingLotManagingSystem.dir/clean
+clean: CMakeFiles/parkingLotManagingSystem_static.dir/clean
+clean: CMakeFiles/test_exe.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -98,6 +102,58 @@ parkingLotManagingSystem: CMakeFiles/parkingLotManagingSystem.dir/rule
 CMakeFiles/parkingLotManagingSystem.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem.dir\build.make CMakeFiles/parkingLotManagingSystem.dir/clean
 .PHONY : CMakeFiles/parkingLotManagingSystem.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/parkingLotManagingSystem_static.dir
+
+# All Build rule for target.
+CMakeFiles/parkingLotManagingSystem_static.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=6,7,8,9 "Built target parkingLotManagingSystem_static"
+.PHONY : CMakeFiles/parkingLotManagingSystem_static.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/parkingLotManagingSystem_static.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\github\Data-Structure-Class-Project\build\CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/parkingLotManagingSystem_static.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\github\Data-Structure-Class-Project\build\CMakeFiles 0
+.PHONY : CMakeFiles/parkingLotManagingSystem_static.dir/rule
+
+# Convenience name for target.
+parkingLotManagingSystem_static: CMakeFiles/parkingLotManagingSystem_static.dir/rule
+.PHONY : parkingLotManagingSystem_static
+
+# clean rule for target.
+CMakeFiles/parkingLotManagingSystem_static.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\parkingLotManagingSystem_static.dir\build.make CMakeFiles/parkingLotManagingSystem_static.dir/clean
+.PHONY : CMakeFiles/parkingLotManagingSystem_static.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_exe.dir
+
+# All Build rule for target.
+CMakeFiles/test_exe.dir/all: CMakeFiles/parkingLotManagingSystem_static.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=10,11 "Built target test_exe"
+.PHONY : CMakeFiles/test_exe.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_exe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\github\Data-Structure-Class-Project\build\CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_exe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\github\Data-Structure-Class-Project\build\CMakeFiles 0
+.PHONY : CMakeFiles/test_exe.dir/rule
+
+# Convenience name for target.
+test_exe: CMakeFiles/test_exe.dir/rule
+.PHONY : test_exe
+
+# clean rule for target.
+CMakeFiles/test_exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/clean
+.PHONY : CMakeFiles/test_exe.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
