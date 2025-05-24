@@ -3,6 +3,43 @@
 ## 项目描述
 本程序模拟一个狭长停车场的车辆进出管理，使用栈模拟停车场，队列模拟等候便道。支持车辆到达、离开和费用结算功能，严格遵循停车场让路规则和停留时间计费逻辑。
 
+## 环境要求
+- *操作系统*：Windows10 或更高版本
+- *编译器*：MinGW64
+- *CMake*：3.30.8
+- *Python*：3.12.7
+- *C++标准*：C++11
+
+## 安装步骤
+1. **安装CMake**
+   - 下载CMake安装包：[CMake官网](https://cmake.org/download/)
+   - 运行安装程序，选择“Add CMake to the system PATH for all users”选项。
+   - 验证安装：在命令行中运行 `cmake --version`，确保输出CMake版本信息。
+2. **安装MinGW64**
+   - 下载MinGW64安装包：
+   [MinGW官网](https://www.mingw-w64.org/downloads/)
+   - 运行安装程序，选择“Installation type: Minimal”，“Architecture: x86_64”，“Threaded: posix”，“Exception: seh”，“Build revision: latest”
+   - 安装完成后，将MinGW的bin目录添加到系统环境变量中。
+3. **配置Python环境**
+   - 下载Python安装包：[Python官网](https://www.python.org/downloads/)
+
+   - 运行安装程序，选择“Add Python to PATH”选项。
+  
+   - 验证安装：在命令行中运行 `python --version`，确保输出Python版本信息。
+
+   - 将Python的Scripts目录添加到系统环境变量中。
+   - 验证安装：在命令行中运行 `python -m pip --version`，确保输出pip版本信息。
+   - 安装依赖包：在命令行中运行 `pip install -r requirements.txt`，确保安装所有依赖包。
+  
+4. **配置C++环境**
+   - 安装完成后，将MinGW的bin目录添加到系统环境变量中。
+   - 验证安装：在命令行中运行 `g++ --version`，确保输出G++版本信息。
+
+5. **编译项目**
+   - 运行python脚本：在命令行中运行 `python build.py`，确保编译成功。
+6. **运行项目**
+   - 运行可执行文件：在命令行中运行 `python main.py`，确保程序正常运行。
+
 ## 功能特性
 • 车辆到达（A）
 
@@ -102,19 +139,6 @@
 输入结束
 ```
 
-## 使用说明
-1. 编译运行
-   ```bash
-   gcc parking_manager.c -o parking_manager
-   ./parking_manager
-   ```
-2. 输入数据
-   • 逐行输入操作数据，字段间用逗号分隔，例如：`A,1,5`
-
-   • 输入 `E,0,0` 终止程序。
-
-3. 参数配置
-   • 修改代码中 `#define PARKING_CAPACITY 2` 可调整停车场容量。
 
 
 ## 实现细节
@@ -123,3 +147,4 @@
 • 便道队列：带头结点的单链表，维护队首和队尾指针。
 
 • 临时栈：独立数组存储，确保让路车辆顺序正确恢复。
+
