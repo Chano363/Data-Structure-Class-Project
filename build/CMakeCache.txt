@@ -20,8 +20,9 @@ CMAKE_ADDR2LINE:FILEPATH=D:/Code/MinGW/ucrt64/bin/addr2line.exe
 //Path to a program.
 CMAKE_AR:FILEPATH=D:/Code/MinGW/ucrt64/bin/ar.exe
 
-//No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:STRING=Debug
+//Choose the type of build, options are: None Debug Release RelWithDebInfo
+// MinSizeRel ...
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -99,9 +100,6 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
-
-//No help, variable specified on the command line.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/github/Data-Structure-Class-Project/build/CMakeFiles/pkgRedirects
@@ -443,8 +441,6 @@ _Python_INCLUDE_DIR:INTERNAL=D:/python3.12.4/include
 //Python Properties
 _Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;4;64;<none>;cp312-win_amd64;;D:\python3.12.4\Lib;D:\python3.12.4\Lib;D:\python3.12.4\Lib\site-packages;D:\python3.12.4\Lib\site-packages
 _Python_INTERPRETER_SIGNATURE:INTERNAL=6f38c63acaf71ee32715fc7e8e1c14a2
-//Interpreter reason failure
-_Python_Interpreter_REASON_FAILURE:INTERNAL=
 //Path to a library.
 _Python_LIBRARY_DEBUG:INTERNAL=_Python_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
