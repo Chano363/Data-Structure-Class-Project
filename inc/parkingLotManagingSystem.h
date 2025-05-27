@@ -15,10 +15,13 @@ public:
     Status depart(int carNumber, int exitTime);
     Status test();
     Status display();
+    bool isExist(int carNumber);
     int getCount();
     int getCapacity();
     int getPerHourCost();
     int getWaitingCount();
+    std::vector<ParkingInfo> getWaitingCar();
+    std::vector<ParkingInfo> getParkingCar();
 private:
     int capacity;
     Queue<ParkingInfo> *waitingQueue;

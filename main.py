@@ -1,12 +1,19 @@
 import sys
 import os
+import configparser
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMessageBox, QHBoxLayout, QTextEdit
 
-# 添加当前目录到模块搜索路径
-sys.path.append("build")
+config = configparser.ConfigParser()
+config.read('config.ini')
 
-mingw_bin_path = os.getenv("MINGW_BIN_PATH", r'D:\Code\MinGW\ucrt64\bin')
-os.add_dll_directory(mingw_bin_path)
+# 设置模块搜索路径
+build_path = config.get('Paths', 'build_path', fallback='build')
+sys.path.append(os.path.abspath(build_path))
+
+# 设置DLL搜索路径
+mingw_bin = config.get('Paths', 'mingw_bin', fallback=r'D:\Code\MinGW\ucrt64\bin')
+if os.path.isdir(mingw_bin):
+    os.add_dll_directory(mingw_bin)
 
 import parkingLotManagingSystem
 
@@ -97,17 +104,31 @@ class ParkingLotApp(QWidget):
             self.status_display.setPlainText('停车场未初始化')
             return
 
-        # 获取停车场状态
+        # 获取基本状态信息
         capacity = self.plms.getCapacity()
         parked_count = self.plms.getCount()
         waiting_count = self.plms.getWaitingCount()
 
-        # 更新显示
+        # 构建状态文本
         status_text = f"停车场容量: {capacity}\n"
         status_text += f"已停车辆数: {parked_count}\n"
-        status_text += f"等待车辆数: {waiting_count}"
-        self.status_display.setPlainText(status_text)
+        status_text += f"等待车辆数: {waiting_count}\n\n"
 
+        # 添加停车场中的车辆信息
+        status_text += "=== 停车场中的车辆 ===\n"
+        parked_cars = self.plms.getParkingCar()  # 调用C++方法获取车辆列表
+        for i, car in enumerate(parked_cars):
+            status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+
+        # 添加等待队列中的车辆信息
+        status_text += "\n=== 等待队列中的车辆 ===\n"
+        waiting_cars = self.plms.getWaitingCar()  # 调用C++方法获取车辆列表
+        for i, car in enumerate(waiting_cars):
+            status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+
+        # 更新显示
+        self.status_display.setPlainText(status_text)
+    
     def init_parking_lot(self):
         # 获取输入值
         capacity = self.capacity_input.text()
@@ -140,7 +161,6 @@ class ParkingLotApp(QWidget):
         # 获取输入值
         car_number = self.car_number_input.text()
         entry_time = self.entry_time_input.text()
-
         # 验证输入
         if not car_number or not entry_time:
             QMessageBox.warning(self, '错误', '请输入有效的车牌号和进入时间！')
@@ -152,7 +172,14 @@ class ParkingLotApp(QWidget):
         except ValueError:
             QMessageBox.warning(self, '错误', '请输入有效的数字！')
             return
-
+        if self.plms.isExist(car_number):
+            QMessageBox.warning(self, '错误', '车牌号已存在！')
+            return
+        if self.last_time > entry_time:
+            QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+            return
+        self.last_time = entry_time  # 更新上一次输入的时间
+        
         # 车辆到达
         self.plms.arrive(car_number, entry_time)
         QMessageBox.information(self, '成功', f'车辆 {car_number} 已到达！')
@@ -168,7 +195,6 @@ class ParkingLotApp(QWidget):
         # 获取输入值
         car_number = self.depart_car_number_input.text()
         exit_time = self.exit_time_input.text()
-
         # 验证输入
         if not car_number or not exit_time:
             QMessageBox.warning(self, '错误', '请输入有效的车牌号和离开时间！')
@@ -180,13 +206,24 @@ class ParkingLotApp(QWidget):
         except ValueError:
             QMessageBox.warning(self, '错误', '请输入有效的数字！')
             return
+        if exit_time < self.last_time:
+            QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+            return
+        self.last_time = exit_time  # 更新上一次输入的时间
+        # 检查车辆是否在停车场
+        parked_cars = self.plms.getCount()
+        if parked_cars == 0:
+            QMessageBox.warning(self, '错误', '停车场中没有车辆！')
+            return
 
         # 车辆离开
-        self.plms.depart(car_number, exit_time)
-        QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开！')
-
-        # 更新状态显示
-        self.update_status()
+        result = self.plms.depart(car_number, exit_time)
+        if result == parkingLotManagingSystem.ERROR:
+            QMessageBox.warning(self, '错误', f'车牌号 {car_number} 不在停车场中！')
+        else:
+            QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开！')
+            # 更新状态显示
+            self.update_status()
 
     def process_console_input(self):
         """处理控制台输入"""

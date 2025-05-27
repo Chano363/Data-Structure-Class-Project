@@ -1,10 +1,31 @@
 cmake_minimum_required(VERSION 3.14)
 project(ParkingLotManagingSystem)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
 set(CMAKE_STRIP "")
 
-# 从 PATH 中获取 MinGW 的路径
-find_program(MINGW_MAKE_PROGRAM mingw32-make.exe)
+# 添加配置选项
+option(USE_CONFIG_FILE "使用配置文件" ON)
+if(USE_CONFIG_FILE)
+    # 查找配置文件
+    find_file(CONFIG_FILE config.cmake PATHS ${CMAKE_SOURCE_DIR})
+    if(CONFIG_FILE)
+        include(${CONFIG_FILE})
+    else()
+        message(STATUS "未找到配置文件，使用默认设置")
+    endif()
+endif()
+
+# 修改MinGW路径查找方式
+if(DEFINED MINGW_PATH)
+    set(MINGW_MAKE_PROGRAM "${MINGW_PATH}/mingw32-make.exe")
+else()
+    find_program(MINGW_MAKE_PROGRAM mingw32-make.exe)
+endif()
+
 if (NOT MINGW_MAKE_PROGRAM)
     message(FATAL_ERROR "未找到 mingw32-make.exe，请确保 MinGW 已正确安装并添加到 PATH 环境变量中。")
 endif()
@@ -14,6 +35,7 @@ set(CMAKE_GENERATOR "MinGW Makefiles" CACHE STRING "" FORCE)
 set(CMAKE_C_COMPILER "gcc.exe" CACHE STRING "" FORCE)
 set(CMAKE_CXX_COMPILER "g++.exe" CACHE STRING "" FORCE)
 set(CMAKE_MAKE_PROGRAM "${MINGW_MAKE_PROGRAM}" CACHE STRING "" FORCE)
+
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -39,6 +61,12 @@ pybind11_add_module(parkingLotManagingSystem
     src/convert.cpp
 )
 
+# 添加链接库
+target_link_libraries(parkingLotManagingSystem PRIVATE
+    -static-libgcc
+    -static-libstdc++
+)
+
 # 创建静态库
 add_library(parkingLotManagingSystem_static STATIC
     src/queue.cpp
@@ -59,9 +87,7 @@ set_target_properties(parkingLotManagingSystem PROPERTIES
 target_include_directories(parkingLotManagingSystem PUBLIC ${CMAKE_SOURCE_DIR}/inc)
 
 # 设置输出目录
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 
 # 设置编译选项
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

@@ -34,12 +34,17 @@
 4. **配置C++环境**
    - 安装完成后，将MinGW的bin目录添加到系统环境变量中。
    - 验证安装：在命令行中运行 `g++ --version`，确保输出G++版本信息。
-
-5. **编译项目**
+5. **修改配置文件**
+   - 打开`config.cmake`文件，修改MinGW路径、Python路径和pybind11路径。
+   - 打开`config.ini`文件,修改MinGW/bin路径
+6. **编译项目**
    - 运行python脚本：在命令行中运行 `python build.py`，确保编译成功。
-6. **运行项目**
+7. **运行项目**
    - 运行可执行文件：在命令行中运行 `python main.py`，确保程序正常运行。
 
+**注意**
+- 确保环境变量MinGW的bin目录在其他C/C++编译器(如Clang)之前, 否则可能会导致编译错误。
+- 确保环境变量Python的Scripts目录在其他Python环境之前(如MinGW中的python), 否则可能会导致Python版本错误。
 ## 功能特性
 • 车辆到达（A）
 

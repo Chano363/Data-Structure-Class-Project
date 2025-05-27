@@ -1,2 +1,2 @@
-D:\Code\MinGW\ucrt64\bin\ar.exe qc libparkingLotManagingSystem_static.a CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj
-D:\Code\MinGW\ucrt64\bin\ranlib.exe libparkingLotManagingSystem_static.a
+D:\Code\MinGW\ucrt64\bin\ar.exe qc bin\libparkingLotManagingSystem_static.a CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj
+D:\Code\MinGW\ucrt64\bin\ranlib.exe bin\libparkingLotManagingSystem_static.a
