@@ -1,12 +1,19 @@
 import sys
 import os
+import configparser
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMessageBox, QHBoxLayout, QTextEdit
 
-# 添加当前目录到模块搜索路径
-sys.path.append("build")
+config = configparser.ConfigParser()
+config.read('config.ini')
 
-mingw_bin_path = os.getenv("MINGW_BIN_PATH", r'D:\Code\MinGW\ucrt64\bin')
-os.add_dll_directory(mingw_bin_path)
+# 设置模块搜索路径
+build_path = config.get('Paths', 'build_path', fallback='build')
+sys.path.append(os.path.abspath(build_path))
+
+# 设置DLL搜索路径
+mingw_bin = config.get('Paths', 'mingw_bin', fallback=r'D:\Code\MinGW\ucrt64\bin')
+if os.path.isdir(mingw_bin):
+    os.add_dll_directory(mingw_bin)
 
 import parkingLotManagingSystem
 

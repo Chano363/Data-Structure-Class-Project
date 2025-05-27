@@ -42,7 +42,7 @@
 
 **注意**
 - 确保环境变量MinGW的bin目录在其他C/C++编译器(如Clang)之前, 否则可能会导致编译错误。
-- 确保环境变量Python的Scripts目录在其他Python环境之前, 否则可能会导致Python版本错误。
+- 确保环境变量Python的Scripts目录在其他Python环境之前(如MinGW中的python), 否则可能会导致Python版本错误。
 ## 功能特性
 • 车辆到达（A）
 
