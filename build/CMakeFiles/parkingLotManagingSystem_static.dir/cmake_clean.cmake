@@ -5,8 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj.d"
   "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj"
   "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj.d"
-  "libparkingLotManagingSystem_static.a"
-  "libparkingLotManagingSystem_static.pdb"
+  "bin/libparkingLotManagingSystem_static.a"
+  "bin/libparkingLotManagingSystem_static.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libparkingLotManagingSystem_static.a"
+  "bin/libparkingLotManagingSystem_static.a"
 )

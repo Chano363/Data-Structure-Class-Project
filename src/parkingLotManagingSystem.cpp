@@ -18,6 +18,70 @@ parkingLotManagingSystem::~parkingLotManagingSystem()
     delete exitStack;
 }
 
+vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()
+{
+    vector<ParkingInfo> temp;
+    while (!waitingQueue->isEmpty())
+    {
+        ParkingInfo car = waitingQueue->dequeue();
+        temp.push_back(car);
+    }
+    for (int i = temp.size() - 1; i >= 0; i--)
+    {
+        waitingQueue->enqueue(temp[i]); 
+    }
+    return temp;
+}
+
+vector<ParkingInfo> parkingLotManagingSystem::getParkingCar()
+{
+    vector<ParkingInfo> temp;
+    while (!parkingStack->isEmpty())
+    {
+        ParkingInfo car = parkingStack->pop();
+        temp.push_back(car);
+    }
+    for (int i = temp.size() - 1; i >= 0; i--)
+    {
+        parkingStack->push(temp[i]);
+    }
+    return temp;
+}
+
+bool parkingLotManagingSystem::isExist(int carNumber)
+{
+    Stack<ParkingInfo> tempStack(capacity);
+    bool found = false;
+    while (!parkingStack->isEmpty())
+    {
+        ParkingInfo temp = parkingStack->pop();
+        if (temp.carNumber == carNumber)
+        {
+            found = true;
+        }
+        tempStack.push(temp);
+    }
+    while (!tempStack.isEmpty())
+    {
+        parkingStack->push(tempStack.pop());
+    }
+    Queue <ParkingInfo> tempQueue(capacity);
+    while (!waitingQueue->isEmpty())
+    {
+        ParkingInfo temp = waitingQueue->dequeue();
+        if (temp.carNumber == carNumber)
+        {
+            found = true;
+        }
+        tempQueue.enqueue(temp);
+    }
+    while (!tempQueue.isEmpty())
+    {
+        waitingQueue->enqueue(tempQueue.dequeue()); 
+    }
+    return found;
+}
+
 Status parkingLotManagingSystem::setCost(int cost)
 {
     if (cost < 0)
@@ -76,6 +140,11 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
     }
 
     temp.exitTime = exitTime;
+    if (exitTime < temp.entryTime)
+    {
+        cout << "Exit time cannot be earlier than entry time." << endl;
+        return ERROR;
+    }
     int cost = (temp.exitTime - temp.entryTime) * perHourCost;
     cout << "Car " << temp.carNumber << " stayed for " 
          << temp.exitTime - temp.entryTime << " hours, fee: " << cost << endl;

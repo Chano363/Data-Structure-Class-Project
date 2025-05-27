@@ -7,10 +7,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj.d"
   "CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj"
   "CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj.d"
-  "libparkingLotManagingSystem.dll.a"
-  "parkingLotManagingSystem.pdb"
-  "parkingLotManagingSystem.pyd"
-  "parkingLotManagingSystem.pyd.manifest"
+  "bin/libparkingLotManagingSystem.dll.a"
+  "lib/parkingLotManagingSystem.pdb"
+  "lib/parkingLotManagingSystem.pyd"
+  "lib/parkingLotManagingSystem.pyd.manifest"
 )
 
 # Per-language clean rules from dependency scanning.
