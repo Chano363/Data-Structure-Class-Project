@@ -42,7 +42,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 添加pybind11路径
-list(APPEND CMAKE_PREFIX_PATH "D:/python3.12.4/Lib/site-packages/pybind11/share/cmake/pybind11")
+list(APPEND CMAKE_PREFIX_PATH "${PYBIND11_PATH}/share/cmake/pybind11")
 
 # 查找Python解释器和开发包
 find_package(Python 3.12 EXACT REQUIRED COMPONENTS Interpreter Development)

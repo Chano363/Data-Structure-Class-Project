@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/parkingLotManagingSystem_static.dir/includes_CXX.rsp
 
-CXX_FLAGS = -std=c++11
+CXX_FLAGS = -g -std=c++11
 
