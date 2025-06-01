@@ -8,14 +8,12 @@ parkingLotManagingSystem::parkingLotManagingSystem(int capacity, int perHourCost
     this->perHourCost = perHourCost;
     waitingQueue = new Queue<ParkingInfo>(capacity);
     parkingStack = new Stack<ParkingInfo>(capacity);
-    exitStack = new Stack<int>(capacity);
 }
 
 parkingLotManagingSystem::~parkingLotManagingSystem()
 {
     delete waitingQueue;
     delete parkingStack;
-    delete exitStack;
 }
 
 vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()

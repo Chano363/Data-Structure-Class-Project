@@ -26,7 +26,6 @@ private:
     int capacity;
     Queue<ParkingInfo> *waitingQueue;
     Stack<ParkingInfo> *parkingStack;
-    Stack<int> *exitStack;
     std::vector<int> costs;
     int perHourCost;
 };

@@ -32,7 +32,7 @@ time.sleep(1)
 
 # 编译项目
 try:
-    subprocess.run(["cmake", "--build", ".", "--config", "Release"], check=True)
+    subprocess.run(["cmake", "--build", ".", "--config", "Release","--target","package_python"], check=True)
 except subprocess.CalledProcessError as e:
     print(f"编译失败: {e}")
     exit(1)
