@@ -142,6 +142,9 @@ class ParkingLotApp(QWidget):
         try:
             capacity = int(capacity)
             per_hour_cost = int(per_hour_cost)
+            if(capacity <= 0 or per_hour_cost <= 0):
+                QMessageBox.warning(self, '错误', '请输入有效的容量和每小时费用！')
+                return
         except ValueError:
             QMessageBox.warning(self, '错误', '请输入有效的数字！')
             return
