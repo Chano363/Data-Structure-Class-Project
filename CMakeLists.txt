@@ -3,7 +3,7 @@ project(ParkingLotManagingSystem)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_STRIP "")
 
@@ -82,10 +82,6 @@ add_library(parkingLotManagingSystem_static STATIC
     src/parkingLotManagingSystem.cpp
 )
 
-# 添加独立可执行文件
-add_executable(test_exe src/test.cpp)
-target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
-
 # 设置输出文件后缀为.pyd
 set_target_properties(parkingLotManagingSystem PROPERTIES
     SUFFIX ".pyd"
@@ -99,9 +95,10 @@ if(PYINSTALLER)
                 --onefile 
                 --windowed
                 --name=ParkingLotSystem
-                --add-data="${CMAKE_BINARY_DIR}/bin/parkingLotManagingSystem.pyd;."
-                --paths="${CMAKE_SOURCE_DIR}"
+                --add-data="${CMAKE_BINARY_DIR}/lib/parkingLotManagingSystem.pyd:."
+                --paths="${CMAKE_SOURCE_DIR}/output"
                 --distpath=${CMAKE_SOURCE_DIR}/output
+                --workpath=${CMAKE_SOURCE_DIR}/output/temp  # Add this line
                 ${CMAKE_SOURCE_DIR}/main.py
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMENT "打包Python程序为exe"
@@ -110,6 +107,10 @@ if(PYINSTALLER)
 else()
     message(WARNING "未找到pyinstaller，无法创建打包任务")
 endif()
+
+# 添加独立可执行文件
+add_executable(test_exe src/test.cpp)
+target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
 
 # 设置目标包含目录
 target_include_directories(parkingLotManagingSystem PUBLIC ${CMAKE_SOURCE_DIR}/inc)

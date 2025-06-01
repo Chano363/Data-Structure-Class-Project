@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/ccc/1/Data-Structure-Class-Project/src/parkingLotManagingSystem.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj.d"
-  "D:/ccc/1/Data-Structure-Class-Project/src/queue.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj.d"
-  "D:/ccc/1/Data-Structure-Class-Project/src/stack.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj.d"
+  "D:/github/Data-Structure-Class-Project/src/parkingLotManagingSystem.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj.d"
+  "D:/github/Data-Structure-Class-Project/src/queue.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj.d"
+  "D:/github/Data-Structure-Class-Project/src/stack.cpp" "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj" "gcc" "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,1 +1,1 @@
--I"D:/ccc/1/Data-Structure-Class-Project/inc" -isystem C:/Users/zx/AppData/Local/Programs/Python/Python312/Include -isystem "C:/Users/zx/AppData/Local/Programs/Python/Python312/Lib/site-packages/pybind11/include"
+-I"D:/github/Data-Structure-Class-Project/inc" -isystem D:/python3.12.4/include -isystem "D:/python3.12.4/Lib/site-packages/pybind11/include"
