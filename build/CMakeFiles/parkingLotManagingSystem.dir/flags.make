@@ -6,5 +6,5 @@ CXX_DEFINES = -DparkingLotManagingSystem_EXPORTS
 
 CXX_INCLUDES = @CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp
 
-CXX_FLAGS = -std=c++11 -fvisibility=hidden
+CXX_FLAGS = -g -std=c++11 -fvisibility=hidden
 

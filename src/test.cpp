@@ -3,7 +3,11 @@
 #include "parkingLotManagingSystem.h"
 using namespace std;
 
-pair<int,int> extractNumbers(const string& input) {
+pair<int,int> extractNumbers(const string& input)
+// input: 输入的字符串
+// 返回一个pair，包含两个整数
+// 第一个整数是第一个逗号之前的数字，第二个整数是第二个逗号之前的数字
+{
     int firstNumber = -1;
     int secondNumber = -1;
     pair<int,int> result = {firstNumber,secondNumber};

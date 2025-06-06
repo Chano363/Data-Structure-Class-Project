@@ -1,0 +1,50 @@
+[
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe -DparkingLotManagingSystem_EXPORTS @CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -o CMakeFiles\\parkingLotManagingSystem.dir\\src\\queue.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\queue.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/queue.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem.dir/src/queue.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe -DparkingLotManagingSystem_EXPORTS @CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -o CMakeFiles\\parkingLotManagingSystem.dir\\src\\stack.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\stack.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/stack.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem.dir/src/stack.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe -DparkingLotManagingSystem_EXPORTS @CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -o CMakeFiles\\parkingLotManagingSystem.dir\\src\\parkingLotManagingSystem.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\parkingLotManagingSystem.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/parkingLotManagingSystem.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem.dir/src/parkingLotManagingSystem.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe -DparkingLotManagingSystem_EXPORTS @CMakeFiles/parkingLotManagingSystem.dir/includes_CXX.rsp -g -std=c++11 -fvisibility=hidden -o CMakeFiles\\parkingLotManagingSystem.dir\\src\\convert.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\convert.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/convert.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem.dir/src/convert.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe  @CMakeFiles/parkingLotManagingSystem_static.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\parkingLotManagingSystem_static.dir\\src\\queue.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\queue.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/queue.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem_static.dir/src/queue.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe  @CMakeFiles/parkingLotManagingSystem_static.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\parkingLotManagingSystem_static.dir\\src\\stack.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\stack.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/stack.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem_static.dir/src/stack.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe  @CMakeFiles/parkingLotManagingSystem_static.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\parkingLotManagingSystem_static.dir\\src\\parkingLotManagingSystem.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\parkingLotManagingSystem.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/parkingLotManagingSystem.cpp",
+  "output": "CMakeFiles/parkingLotManagingSystem_static.dir/src/parkingLotManagingSystem.cpp.obj"
+},
+{
+  "directory": "D:/github/Data-Structure-Class-Project/build",
+  "command": "g++.exe  @CMakeFiles/test_exe.dir/includes_CXX.rsp -g -std=c++11 -o CMakeFiles\\test_exe.dir\\src\\test.cpp.obj -c D:\\github\\Data-Structure-Class-Project\\src\\test.cpp",
+  "file": "D:/github/Data-Structure-Class-Project/src/test.cpp",
+  "output": "CMakeFiles/test_exe.dir/src/test.cpp.obj"
+}
+]
