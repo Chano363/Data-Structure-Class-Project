@@ -2,10 +2,17 @@
 
 
 a = Analysis(
+<<<<<<< HEAD
     ['D:/github/Data-Structure-Class-Project/main.py'],
     pathex=['D:/github/Data-Structure-Class-Project/output'],
     binaries=[],
     datas=[('D:/github/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd', '.')],
+=======
+    ['D:/ccc/1/Data-Structure-Class-Project/main.py'],
+    pathex=['D:/ccc/1/Data-Structure-Class-Project'],
+    binaries=[],
+    datas=[('D:/ccc/1/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd', '.')],
+>>>>>>> origin/xjs-dev
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

@@ -82,6 +82,22 @@ add_library(parkingLotManagingSystem_static STATIC
     src/parkingLotManagingSystem.cpp
 )
 
+<<<<<<< HEAD
+=======
+# 添加独立可执行文件
+if(EXISTS "${CMAKE_SOURCE_DIR}/src/test.cpp")
+    add_executable(test_exe src/test.cpp)
+    target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+    
+    # 明确设置输出路径
+    set_target_properties(test_exe PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+else()
+    message(WARNING "test.cpp not found, skipping test_exe target")
+endif()
+
+>>>>>>> origin/xjs-dev
 # 设置输出文件后缀为.pyd
 set_target_properties(parkingLotManagingSystem PROPERTIES
     SUFFIX ".pyd"
@@ -96,9 +112,14 @@ if(PYINSTALLER)
                 --windowed
                 --name=ParkingLotSystem
                 --add-data="${CMAKE_BINARY_DIR}/lib/parkingLotManagingSystem.pyd:."
+<<<<<<< HEAD
                 --paths="${CMAKE_SOURCE_DIR}/output"
                 --distpath=${CMAKE_SOURCE_DIR}/output
                 --workpath=${CMAKE_SOURCE_DIR}/output/temp  # Add this line
+=======
+                --paths="${CMAKE_SOURCE_DIR}"
+                --distpath=${CMAKE_SOURCE_DIR}/output
+>>>>>>> origin/xjs-dev
                 ${CMAKE_SOURCE_DIR}/main.py
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMENT "打包Python程序为exe"
@@ -108,10 +129,13 @@ else()
     message(WARNING "未找到pyinstaller，无法创建打包任务")
 endif()
 
+<<<<<<< HEAD
 # 添加独立可执行文件
 add_executable(test_exe src/test.cpp)
 target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
 
+=======
+>>>>>>> origin/xjs-dev
 # 设置目标包含目录
 target_include_directories(parkingLotManagingSystem PUBLIC ${CMAKE_SOURCE_DIR}/inc)
 

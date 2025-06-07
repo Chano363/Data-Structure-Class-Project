@@ -12,7 +12,7 @@ public:
     Status setCost(int cost);
     Status setCapacity(int capacity);
     Status arrive(int carNumber, int entryTime);
-    Status depart(int carNumber, int exitTime);
+    int depart(int carNumber, int exitTime);
     Status test();
     Status display();
     bool isExist(int carNumber);
@@ -26,7 +26,6 @@ private:
     int capacity;
     Queue<ParkingInfo> *waitingQueue;
     Stack<ParkingInfo> *parkingStack;
-    Stack<int> *exitStack;
     std::vector<int> costs;
     int perHourCost;
 };

@@ -1,5 +1,6 @@
 import sys
 import os
+import time
 import configparser
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMessageBox, QHBoxLayout, QTextEdit
 
@@ -11,7 +12,7 @@ build_path = config.get('Paths', 'build_path', fallback='build')
 sys.path.append(os.path.abspath(build_path))
 
 # 设置DLL搜索路径
-mingw_bin = config.get('Paths', 'mingw_bin', fallback=r'D:\Code\MinGW\ucrt64\bin')
+mingw_bin = config.get('Paths', 'mingw_bin', fallback=r'D:\MinGW\mingw64\bin')
 if os.path.isdir(mingw_bin):
     os.add_dll_directory(mingw_bin)
 
@@ -100,35 +101,89 @@ class ParkingLotApp(QWidget):
 
     def update_status(self):
         """更新停车场状态显示"""
+        print("\n===== 开始更新状态 =====")
+        print(f"更新时间: {time.strftime('%H:%M:%S')}")
+
         if not self.plms:
-            self.status_display.setPlainText('停车场未初始化')
+            display_text = '停车场未初始化'
+            self.status_display.setPlainText(display_text)
+            print("更新状态: 停车场未初始化")
+            print("===== 结束更新状态 =====\n")
             return
 
-        # 获取基本状态信息
-        capacity = self.plms.getCapacity()
-        parked_count = self.plms.getCount()
-        waiting_count = self.plms.getWaitingCount()
+        try:
+            # 获取基本状态信息
+            capacity = self.plms.getCapacity()
+            parked_count = self.plms.getCount()
+            waiting_count = self.plms.getWaitingCount()
 
-        # 构建状态文本
-        status_text = f"停车场容量: {capacity}\n"
-        status_text += f"已停车辆数: {parked_count}\n"
-        status_text += f"等待车辆数: {waiting_count}\n\n"
+            # 获取车辆列表
+            parked_cars = self.plms.getParkingCar()
+            waiting_cars = self.plms.getWaitingCar()
 
-        # 添加停车场中的车辆信息
-        status_text += "=== 停车场中的车辆 ===\n"
-        parked_cars = self.plms.getParkingCar()  # 调用C++方法获取车辆列表
-        for i, car in enumerate(parked_cars):
-            status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+            # 调试输出
+            print(f"PLMS对象地址: {hex(id(self.plms))}")
+            print(f"停车场容量: {capacity}")
+            print(f"已停车辆数: {parked_count}")
+            print(f"等待车辆数: {waiting_count}")
+            print(f"获取停车车辆类型: {type(parked_cars)}")
+            print(f"获取停车车辆数量: {len(parked_cars)}")
 
-        # 添加等待队列中的车辆信息
-        status_text += "\n=== 等待队列中的车辆 ===\n"
-        waiting_cars = self.plms.getWaitingCar()  # 调用C++方法获取车辆列表
-        for i, car in enumerate(waiting_cars):
-            status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+            # 打印停车场中的每辆车
+            print("=== 停车车辆详情 ===")
+            for i, car in enumerate(parked_cars):
+                print(f"车辆{i+1}: 车牌={car.carNumber}, 进入时间={car.entryTime}, 对象ID={id(car)}")
 
-        # 更新显示
-        self.status_display.setPlainText(status_text)
-    
+            # 打印等待队列中的每辆车
+            print("=== 等待车辆详情 ===")
+            for i, car in enumerate(waiting_cars):
+                print(f"等待车辆{i+1}: 车牌={car.carNumber}, 进入时间={car.entryTime}, 对象ID={id(car)}")
+
+            # 构建状态文本
+            status_text = f"停车场容量: {capacity}\n"
+            status_text += f"已停车辆数: {parked_count}\n"
+            status_text += f"等待车辆数: {waiting_count}\n\n"
+
+            # 添加停车场车辆信息
+            status_text += "=== 停车场中的车辆 ===\n"
+            if parked_count > 0:
+                for i, car in enumerate(parked_cars):
+                    status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+            else:
+                status_text += "停车场为空\n"
+
+            # 添加等待队列车辆信息
+            status_text += "\n=== 等待队列中的车辆 ===\n"
+            if waiting_count > 0:
+                for i, car in enumerate(waiting_cars):
+                    status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+            else:
+                status_text += "等待队列为空\n"
+
+            # 更新显示
+            self.status_display.setPlainText(status_text)
+            print("状态文本已更新")
+
+            # 调试输出状态文本内容
+            print("\n===== 状态文本内容 =====")
+            print(status_text)
+            print("===== 结束状态文本 =====")
+
+            # 调试输出结束
+            print("===== 结束更新状态 =====\n")
+
+        except Exception as e:
+            # 详细的错误处理
+            error_msg = f'更新状态时出错: {str(e)}'
+            print(error_msg)
+            import traceback
+            traceback.print_exc()
+
+            # 在GUI中显示错误
+            QMessageBox.warning(self, '错误', error_msg)
+
+            # 在状态显示区域显示错误
+            self.status_display.setPlainText(f"更新状态时出错:\n{str(e)}\n\n{traceback.format_exc()}")
     def init_parking_lot(self):
         # 获取输入值
         capacity = self.capacity_input.text()
@@ -160,7 +215,6 @@ class ParkingLotApp(QWidget):
         if not self.plms:
             QMessageBox.warning(self, '错误', '请先初始化停车场！')
             return
-
         # 获取输入值
         car_number = self.car_number_input.text()
         entry_time = self.entry_time_input.text()
@@ -185,8 +239,13 @@ class ParkingLotApp(QWidget):
         
         # 车辆到达
         self.plms.arrive(car_number, entry_time)
-        QMessageBox.information(self, '成功', f'车辆 {car_number} 已到达！')
+        QMessageBox.information(self, '成功', f'车辆 {car_number} 停在 {self.plms.getCount()} 号车位！')
+        
+        self.car_number_input.clear() 
+        self.entry_time_input.clear() 
 
+        QApplication.processEvents() 
+        
         # 更新状态显示
         self.update_status()
 
@@ -194,7 +253,6 @@ class ParkingLotApp(QWidget):
         if not self.plms:
             QMessageBox.warning(self, '错误', '请先初始化停车场！')
             return
-
         # 获取输入值
         car_number = self.depart_car_number_input.text()
         exit_time = self.exit_time_input.text()
@@ -202,7 +260,6 @@ class ParkingLotApp(QWidget):
         if not car_number or not exit_time:
             QMessageBox.warning(self, '错误', '请输入有效的车牌号和离开时间！')
             return
-
         try:
             car_number = int(car_number)
             exit_time = int(exit_time)
@@ -218,15 +275,19 @@ class ParkingLotApp(QWidget):
         if parked_cars == 0:
             QMessageBox.warning(self, '错误', '停车场中没有车辆！')
             return
-
         # 车辆离开
         result = self.plms.depart(car_number, exit_time)
         if result == parkingLotManagingSystem.ERROR:
             QMessageBox.warning(self, '错误', f'车牌号 {car_number} 不在停车场中！')
         else:
-            QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开！')
-            # 更新状态显示
-            self.update_status()
+            QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开，停车费用为 {result}')
+        
+        # 清空输入框
+        self.depart_car_number_input.clear() 
+        self.exit_time_input.clear() 
+        QApplication.processEvents() 
+        # 更新状态显示
+        self.update_status()
 
     def process_console_input(self):
         """处理控制台输入"""
@@ -260,12 +321,11 @@ class ParkingLotApp(QWidget):
         # 处理操作
         if operation == 'A':
             self.plms.arrive(car_number, time)
-            QMessageBox.information(self, '成功', f'车辆 {car_number} 已到达！')
         elif operation == 'D':
             self.plms.depart(car_number, time)
-            QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开！')
         elif operation == 'E':
             QMessageBox.information(self, '结束', '输入结束！')
+            self.close()
         else:
             QMessageBox.warning(self, '错误', '无效的操作类型！')
         # 清空输入框
@@ -274,7 +334,23 @@ class ParkingLotApp(QWidget):
         self.update_status()
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = ParkingLotApp()
-    ex.show()
-    sys.exit(app.exec_())
+    NoDebug = 1
+    if NoDebug:
+        app = QApplication(sys.argv)
+        ex = ParkingLotApp()
+        ex.show()
+        sys.exit(app.exec_())
+    
+    plms = parkingLotManagingSystem.parkingLotManagingSystem(10, 10)
+    for i in range(3):
+        carnumber = int(input("请输入车牌号："))
+        time = int(input("请输入时间："))
+        plms.arrive(carnumber, time)
+    parked = plms.getParkingCar()
+    print(type(parked))  # 应该显示 <class 'list'>
+    print(type(parked[0]))  # 应该显示 <class 'parkingLotManagingSystem.ParkingInfo'>
+    print(parked[0].carNumber)  # 检查第一个车辆的车牌号
+    print(f"停车场中有 {len(parked)} 辆车辆")
+    for car in parked:
+        print(f"车牌号: {car.carNumber}, 进入时间: {car.entryTime}")
+    
