@@ -83,8 +83,17 @@ add_library(parkingLotManagingSystem_static STATIC
 )
 
 # 添加独立可执行文件
-add_executable(test_exe src/test.cpp)
-target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+if(EXISTS "${CMAKE_SOURCE_DIR}/src/test.cpp")
+    add_executable(test_exe src/test.cpp)
+    target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+    
+    # 明确设置输出路径
+    set_target_properties(test_exe PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+else()
+    message(WARNING "test.cpp not found, skipping test_exe target")
+endif()
 
 # 设置输出文件后缀为.pyd
 set_target_properties(parkingLotManagingSystem PROPERTIES

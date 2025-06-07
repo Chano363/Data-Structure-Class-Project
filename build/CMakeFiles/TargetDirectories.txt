@@ -2,5 +2,5 @@ D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/parkingLotManagingSystem.
 D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/parkingLotManagingSystem_static.dir
 D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/test_exe.dir
 D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/package_python.dir
-D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/edit_cache.dir
-D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/rebuild_cache.dir
+D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/ALL_BUILD.dir
+D:/ccc/1/Data-Structure-Class-Project/build/CMakeFiles/ZERO_CHECK.dir

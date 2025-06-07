@@ -37,4 +37,12 @@ except subprocess.CalledProcessError as e:
     print(f"编译失败: {e}")
     exit(1)
 
+try:
+    if os.path.exists("build/build"):
+        shutil.rmtree("build/build")
+except (OSError, shutil.Error) as e:  # 修改异常捕获类型
+    print(f"删除build/build目录失败: {e}")
+    exit(1)
+
+
 print("构建成功！")

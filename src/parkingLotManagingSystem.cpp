@@ -19,14 +19,14 @@ parkingLotManagingSystem::~parkingLotManagingSystem()
 vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()
 {
     vector<ParkingInfo> temp;
-    while (!waitingQueue->isEmpty())
-    {
+    Queue<ParkingInfo> tempQueue(capacity);  
+    while (!waitingQueue->isEmpty()) {
         ParkingInfo car = waitingQueue->dequeue();
         temp.push_back(car);
+        tempQueue.enqueue(car); 
     }
-    for (int i = temp.size() - 1; i >= 0; i--)
-    {
-        waitingQueue->enqueue(temp[i]); 
+    while (!tempQueue.isEmpty()) {
+        waitingQueue->enqueue(tempQueue.dequeue());
     }
     return temp;
 }
@@ -34,15 +34,19 @@ vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()
 vector<ParkingInfo> parkingLotManagingSystem::getParkingCar()
 {
     vector<ParkingInfo> temp;
-    while (!parkingStack->isEmpty())
-    {
-        ParkingInfo car = parkingStack->pop();
-        temp.push_back(car);
+    Stack<ParkingInfo> tempStack(capacity);
+
+    while (!parkingStack->isEmpty()) {
+        tempStack.push(parkingStack->pop());
     }
-    for (int i = temp.size() - 1; i >= 0; i--)
-    {
-        parkingStack->push(temp[i]);
+    
+    while (!tempStack.isEmpty()) {
+        ParkingInfo car = tempStack.pop();
+        temp.push_back(car); 
+        cout << "CarNum:" << car.carNumber << " Entry:" << car.entryTime << endl;
+        parkingStack->push(car);  
     }
+    
     return temp;
 }
 
@@ -102,7 +106,7 @@ Status parkingLotManagingSystem::setCapacity(int capacity)
     return OK; 
 }
 
-Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
+int parkingLotManagingSystem::depart(int carNumber, int exitTime)
 {
     if (parkingStack->isEmpty())
     {
@@ -119,6 +123,7 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
         if (temp.carNumber == carNumber)
         {
             found = true;
+            break;
         }
         else
         {
@@ -151,7 +156,7 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
     {
         parkingStack->push(waitingQueue->dequeue());
     }
-    return OK;
+    return cost;
 }
 
 Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
@@ -186,32 +191,27 @@ Status parkingLotManagingSystem::display()
     cout << "Parking lot capacity: " << capacity << endl;
     cout << "Number of parked cars: " << parkingStack->getCount() << endl;
     cout << "Number of cars in waiting queue: " << waitingQueue->getCount() << endl;
-    
+    vector<ParkingInfo> tempParking = getParkingCar();
+    vector<ParkingInfo> tempWaiting = getWaitingCar();
     if(parkingStack->getCount() == 0){
         cout << "No cars in parking lot" << endl;
     }
     else {
         cout << "Parked cars:" << endl;
-        for(int i = 0; i < parkingStack->getCount(); i++)
-        {
-            ParkingInfo temp = parkingStack->pop();
-            cout << "Car " << temp.carNumber << " at position " << i << endl;
-            parkingStack->push(temp);
+        for(int i = 0; i < tempParking.size(); i++){
+            ParkingInfo car = tempParking[i];
+            cout << "Car " << car.carNumber << " parked at position " << i << endl;
         }
     }
-    
     if(waitingQueue->getCount() == 0)
     {
         cout << "No cars in waiting queue" << endl;
     }
     else {
         cout << "Cars in waiting queue:" << endl;
-        for(int i = 0; i < waitingQueue->getCount(); i++)
-        {
-            ParkingInfo temp = waitingQueue->dequeue();
-            cout << "Car " << temp.carNumber << " at position " << i << endl;
-            waitingQueue->enqueue(temp);
-        } 
+        for(auto car : tempWaiting){
+            cout << "Car " << car.carNumber << " waiting in queue at position " << waitingQueue->getCount() << endl; 
+        }
     }
     return OK;
 }
