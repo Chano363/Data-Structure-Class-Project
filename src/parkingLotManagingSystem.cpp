@@ -9,7 +9,7 @@ parkingLotManagingSystem::parkingLotManagingSystem(int capacity, int perHourCost
 {
     this->capacity = capacity;
     this->perHourCost = perHourCost;
-    waitingQueue = new Queue<ParkingInfo>(capacity);
+    waitingQueue = new Queue<ParkingInfo>(capacity*100);
     parkingStack = new Stack<ParkingInfo>(capacity);
 }
 

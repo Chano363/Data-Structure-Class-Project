@@ -29,8 +29,7 @@ struct ParkingInfo
             carNumber = other.carNumber;
             entryTime = other.entryTime;
             exitTime = other.exitTime;
-            // 添加调试输出
-            std::cout << "深拷贝赋值: " << carNumber << " 时间: " << entryTime << std::endl;
+            // std::cout << "深拷贝赋值: " << carNumber << " 时间: " << entryTime << std::endl;
         }
         return *this;
     }

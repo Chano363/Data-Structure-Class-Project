@@ -261,7 +261,7 @@ class ParkingLotApp(QWidget):
         
         # 车辆到达
         self.plms.arrive(car_number, entry_time)
-        if self.plms.getParkingCount() >= self.plms.getCapacity():
+        if  self.plms.getWaitingCount() != 0:
             QMessageBox.information(self, '成功', f'车辆 {car_number} 停在便道 {self.plms.getWaitingCount()} 号车位！')
         else :
             QMessageBox.information(self, '成功', f'车辆 {car_number} 停在停车场 {self.plms.getParkingCount()} 号车位！')
@@ -359,7 +359,7 @@ class ParkingLotApp(QWidget):
                 QMessageBox.warning(self, '错误', '车牌号已存在！')
                 return
             self.plms.arrive(car_number, time)
-            if self.plms.getParkingCount() >= self.plms.getCapacity():
+            if self.plms.getWaitingCount() != 0:
                 QMessageBox.information(self, '成功', f'车辆 {car_number} 停在便道 {self.plms.getWaitingCount()} 号车位！')
             else :
                 QMessageBox.information(self, '成功', f'车辆 {car_number} 停在停车场 {self.plms.getParkingCount()} 号车位！')
