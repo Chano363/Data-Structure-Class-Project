@@ -5,7 +5,7 @@ a = Analysis(
     ['D:/github/Data-Structure-Class-Project/main.py'],
     pathex=['D:/github/Data-Structure-Class-Project'],
     binaries=[],
-    datas=[('D:/github/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd', '.')],
+    datas=[('D:/github/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd', '.'), ('D:/github/Data-Structure-Class-Project/docs/instructions.txt', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

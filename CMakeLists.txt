@@ -109,6 +109,7 @@ if(PYINSTALLER)
                 --windowed
                 --name=ParkingLotSystem
                 --add-data="${CMAKE_BINARY_DIR}/lib/parkingLotManagingSystem.pyd:."
+                --add-data="${CMAKE_SOURCE_DIR}/docs/instructions.txt:."
                 --paths="${CMAKE_SOURCE_DIR}"
                 --distpath=${CMAKE_SOURCE_DIR}/output
                 ${CMAKE_SOURCE_DIR}/main.py

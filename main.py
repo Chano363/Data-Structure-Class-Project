@@ -2,7 +2,7 @@ import sys
 import os
 import time
 import configparser
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMessageBox, QHBoxLayout, QTextEdit
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMessageBox, QHBoxLayout, QTextEdit, QDialog
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -96,9 +96,44 @@ class ParkingLotApp(QWidget):
         self.process_button.clicked.connect(self.process_console_input)
         layout.addWidget(self.process_button)
 
+        # 添加显示说明
+        self.instructions_btn = QPushButton('输入说明',self)
+        self.instructions_btn.setStyleSheet("color: blue;")
+        self.instructions_btn.clicked.connect(self.show_instructions)
+        layout.addWidget(self.instructions_btn)
         # 设置布局
         self.setLayout(layout)
+    def show_instructions(self):
+        dialog = QDialog(self)
+        dialog.setWindowTitle("输入说明")
+        dialog.resize(600, 400)
 
+        text_edit = QTextEdit(dialog)
+        text_edit.setReadOnly(True)
+
+        try:
+            # 处理打包后的资源路径
+            if getattr(sys, 'frozen', False):
+                # 打包后运行时
+                base_path = sys._MEIPASS
+                file_path = os.path.join(base_path, "instructions.txt")
+            else:
+                # 开发时运行时
+                base_path = os.path.dirname(os.path.abspath(__file__))
+                file_path = os.path.join(base_path, "docs", "instructions.txt")
+
+            with open(file_path, "r", encoding="utf-8") as file:
+                text = file.read()
+                text_edit.setPlainText(text)
+        except FileNotFoundError:
+            text_edit.setPlainText(f"未找到说明文件: {file_path}")
+        except Exception as e:
+            text_edit.setPlainText(f"读取说明文件出错: {str(e)}")
+
+        layout = QVBoxLayout()
+        layout.addWidget(text_edit)
+        dialog.setLayout(layout)
+        dialog.exec_()
     def update_status(self):
         """更新停车场状态显示"""
         try:

@@ -67,7 +67,7 @@ include CMakeFiles/package_python.dir/progress.make
 
 CMakeFiles/package_python: lib/parkingLotManagingSystem.pyd
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\github\Data-Structure-Class-Project\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) 打包Python程序为exe
-	D:\python3.12.4\Scripts\pyinstaller.exe --onefile --windowed --name=ParkingLotSystem --add-data="D:/github/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd:." --paths="D:/github/Data-Structure-Class-Project" --distpath=D:/github/Data-Structure-Class-Project/output D:/github/Data-Structure-Class-Project/main.py
+	D:\python3.12.4\Scripts\pyinstaller.exe --onefile --windowed --name=ParkingLotSystem --add-data="D:/github/Data-Structure-Class-Project/build/lib/parkingLotManagingSystem.pyd:." --add-data="D:/github/Data-Structure-Class-Project/docs/instructions.txt:." --paths="D:/github/Data-Structure-Class-Project" --distpath=D:/github/Data-Structure-Class-Project/output D:/github/Data-Structure-Class-Project/main.py
 
 package_python: CMakeFiles/package_python
 package_python: CMakeFiles/package_python.dir/build.make
