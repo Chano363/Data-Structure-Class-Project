@@ -32,16 +32,11 @@ time.sleep(1)
 
 # 编译项目
 try:
-<<<<<<< HEAD
     subprocess.run(["cmake", "--build", ".", "--config", "Release", "--target", "package_python"], check=True)
-=======
-    subprocess.run(["cmake", "--build", ".", "--config", "Release","--target","package_python"], check=True)
->>>>>>> origin/xjs-dev
 except subprocess.CalledProcessError as e:
     print(f"编译失败: {e}")
     exit(1)
 
-<<<<<<< HEAD
 print("构建成功！")
 
 # 删除 output/temp 文件夹里的文件
@@ -57,14 +52,3 @@ if os.path.exists(temp_dir):
     print(f"{temp_dir} 里的文件已删除。")
 else:
     print(f"{temp_dir} 目录不存在。")
-=======
-try:
-    if os.path.exists("build/build"):
-        shutil.rmtree("build/build")
-except (OSError, shutil.Error) as e:  # 修改异常捕获类型
-    print(f"删除build/build目录失败: {e}")
-    exit(1)
-
-
-print("构建成功！")
->>>>>>> origin/xjs-dev

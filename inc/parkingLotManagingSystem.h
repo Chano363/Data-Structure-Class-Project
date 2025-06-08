@@ -26,6 +26,6 @@ private:
     int capacity;
     Queue<ParkingInfo> *waitingQueue;
     Stack<ParkingInfo> *parkingStack;
-    std::vector<int> costs;
+    std::vector<ParkingInfo> objectPool;
     int perHourCost;
 };

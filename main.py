@@ -101,17 +101,16 @@ class ParkingLotApp(QWidget):
 
     def update_status(self):
         """更新停车场状态显示"""
-        print("\n===== 开始更新状态 =====")
-        print(f"更新时间: {time.strftime('%H:%M:%S')}")
-
-        if not self.plms:
-            display_text = '停车场未初始化'
-            self.status_display.setPlainText(display_text)
-            print("更新状态: 停车场未初始化")
-            print("===== 结束更新状态 =====\n")
-            return
-
         try:
+            print(f"\n{'='*20} 开始更新状态 {'='*20}")
+            print(f"更新时间: {time.strftime('%H:%M:%S')}")
+
+            if not self.plms:
+                display_text = '停车场未初始化'
+                self.status_display.setPlainText(display_text)
+                print("更新状态: 停车场未初始化")
+                return
+
             # 获取基本状态信息
             capacity = self.plms.getCapacity()
             parked_count = self.plms.getCount()
@@ -129,16 +128,6 @@ class ParkingLotApp(QWidget):
             print(f"获取停车车辆类型: {type(parked_cars)}")
             print(f"获取停车车辆数量: {len(parked_cars)}")
 
-            # 打印停车场中的每辆车
-            print("=== 停车车辆详情 ===")
-            for i, car in enumerate(parked_cars):
-                print(f"车辆{i+1}: 车牌={car.carNumber}, 进入时间={car.entryTime}, 对象ID={id(car)}")
-
-            # 打印等待队列中的每辆车
-            print("=== 等待车辆详情 ===")
-            for i, car in enumerate(waiting_cars):
-                print(f"等待车辆{i+1}: 车牌={car.carNumber}, 进入时间={car.entryTime}, 对象ID={id(car)}")
-
             # 构建状态文本
             status_text = f"停车场容量: {capacity}\n"
             status_text += f"已停车辆数: {parked_count}\n"
@@ -149,6 +138,7 @@ class ParkingLotApp(QWidget):
             if parked_count > 0:
                 for i, car in enumerate(parked_cars):
                     status_text += f"{i+1}. 车牌号: {car.carNumber}, 进入时间: {car.entryTime}\n"
+                    print(f"车辆{i+1}: 车牌={car.carNumber}, 进入时间={car.entryTime}, 对象ID={id(car)}")
             else:
                 status_text += "停车场为空\n"
 
@@ -164,26 +154,19 @@ class ParkingLotApp(QWidget):
             self.status_display.setPlainText(status_text)
             print("状态文本已更新")
 
-            # 调试输出状态文本内容
-            print("\n===== 状态文本内容 =====")
-            print(status_text)
-            print("===== 结束状态文本 =====")
-
-            # 调试输出结束
-            print("===== 结束更新状态 =====\n")
+            # 强制GUI刷新
+            self.status_display.update()
+            self.status_display.repaint()
+            QApplication.processEvents()
 
         except Exception as e:
-            # 详细的错误处理
             error_msg = f'更新状态时出错: {str(e)}'
             print(error_msg)
             import traceback
             traceback.print_exc()
-
-            # 在GUI中显示错误
             QMessageBox.warning(self, '错误', error_msg)
-
-            # 在状态显示区域显示错误
-            self.status_display.setPlainText(f"更新状态时出错:\n{str(e)}\n\n{traceback.format_exc()}")
+        finally:
+            print(f"{'='*20} 结束更新状态 {'='*20}\n")
     def init_parking_lot(self):
         # 获取输入值
         capacity = self.capacity_input.text()
@@ -207,7 +190,6 @@ class ParkingLotApp(QWidget):
         # 初始化停车场管理系统
         self.plms = parkingLotManagingSystem.parkingLotManagingSystem(capacity, per_hour_cost)
         QMessageBox.information(self, '成功', '停车场已初始化！')
-
         # 更新状态显示
         self.update_status()
 

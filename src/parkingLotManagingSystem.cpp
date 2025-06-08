@@ -84,36 +84,12 @@ bool parkingLotManagingSystem::isExist(int carNumber)
 // carNumber: 车辆编号
 // 判断车辆是否存在
 {
-    Stack<ParkingInfo> tempStack(capacity);
-    bool found = false;
-    while (!parkingStack->isEmpty())
-    {
-        ParkingInfo temp = parkingStack->pop();
-        if (temp.carNumber == carNumber)
-        {
-            found = true;
+    for(int i = 0; i < objectPool.size(); i++) {
+        if(objectPool[i].carNumber == carNumber) {
+            return true; 
         }
-        tempStack.push(temp);
     }
-    while (!tempStack.isEmpty())
-    {
-        parkingStack->push(tempStack.pop());
-    }
-    Queue <ParkingInfo> tempQueue(capacity);
-    while (!waitingQueue->isEmpty())
-    {
-        ParkingInfo temp = waitingQueue->dequeue();
-        if (temp.carNumber == carNumber)
-        {
-            found = true;
-        }
-        tempQueue.enqueue(temp);
-    }
-    while (!tempQueue.isEmpty())
-    {
-        waitingQueue->enqueue(tempQueue.dequeue()); 
-    }
-    return found;
+    return false;
 }
 
 Status parkingLotManagingSystem::setCost(int cost)
@@ -142,14 +118,7 @@ Status parkingLotManagingSystem::setCapacity(int capacity)
     return OK; 
 }
 
-<<<<<<< HEAD
-Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
-// carNumber: 车辆编号
-// exitTime: 车辆离开停车场的时间
-// 车辆离开停车场, 计算停车费用, 并将车辆从停车场中移除
-=======
 int parkingLotManagingSystem::depart(int carNumber, int exitTime)
->>>>>>> origin/xjs-dev
 {
     if (parkingStack->isEmpty())
     {
@@ -199,6 +168,12 @@ int parkingLotManagingSystem::depart(int carNumber, int exitTime)
     {
         parkingStack->push(waitingQueue->dequeue());
     }
+    for(auto it = objectPool.begin(); it != objectPool.end(); it++){
+        if(it->carNumber == carNumber){
+            objectPool.erase(it);
+            break;
+        } 
+    }
     return cost;
 }
 
@@ -208,18 +183,25 @@ Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
 // 车辆进入停车场, 如果停车场已满, 则将车辆加入等待队列
 // 如果停车场未满, 则将车辆加入停车场
 {
+    if (isExist(carNumber))
+    {
+        cout << "Car " << carNumber << " already exists." << endl;
+        return ERROR;
+    }
+    
     ParkingInfo temp;
     temp.carNumber = carNumber;
     temp.entryTime = entryTime;
+    objectPool.push_back(temp);
     if (parkingStack->getCount() < capacity)
     {
-        parkingStack->push(temp);
+        parkingStack->push(objectPool.back());
         cout << "Car " << temp.carNumber << " parked at position " 
              << parkingStack->getCount() << endl;
     }
     else
     {
-        waitingQueue->enqueue(temp);
+        waitingQueue->enqueue(objectPool.back());
         cout << "Car " << temp.carNumber << " waiting in queue at position " 
              << waitingQueue->getCount() << endl;
     }
