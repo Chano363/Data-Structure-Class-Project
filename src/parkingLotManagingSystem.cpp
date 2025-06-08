@@ -20,10 +20,16 @@ parkingLotManagingSystem::~parkingLotManagingSystem()
     delete parkingStack;
 }
 
-int parkingLotManagingSystem::getCount()
+int parkingLotManagingSystem::getParkingCount()
 // 返回停车场中的车辆数量
 {
     return parkingStack->getCount();
+}
+
+int parkingLotManagingSystem::getWaitingCount()
+// 返回等待队列中的车辆数量
+{
+    return waitingQueue->getCount();
 }
 
 int parkingLotManagingSystem::getCapacity()
@@ -36,12 +42,6 @@ int parkingLotManagingSystem::getPerHourCost()
 // 返回每小时的停车费
 {
     return perHourCost;
-}
-
-int parkingLotManagingSystem::getWaitingCount()
-// 返回等待队列中的车辆数量
-{
-    return waitingQueue->getCount();
 }
 
 vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()

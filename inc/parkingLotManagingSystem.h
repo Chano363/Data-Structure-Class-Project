@@ -16,9 +16,9 @@ public:
     Status test();
     Status display();
     bool isExist(int carNumber);
-    int getCount();
     int getCapacity();
     int getPerHourCost();
+    int getParkingCount();
     int getWaitingCount();
     std::vector<ParkingInfo> getWaitingCar();
     std::vector<ParkingInfo> getParkingCar();

@@ -113,7 +113,7 @@ class ParkingLotApp(QWidget):
 
             # 获取基本状态信息
             capacity = self.plms.getCapacity()
-            parked_count = self.plms.getCount()
+            parked_count = self.plms.getParkingCount()
             waiting_count = self.plms.getWaitingCount()
 
             # 获取车辆列表
@@ -154,7 +154,6 @@ class ParkingLotApp(QWidget):
             self.status_display.setPlainText(status_text)
             print("状态文本已更新")
 
-            # 强制GUI刷新
             self.status_display.update()
             self.status_display.repaint()
             QApplication.processEvents()
@@ -171,7 +170,7 @@ class ParkingLotApp(QWidget):
         # 获取输入值
         capacity = self.capacity_input.text()
         per_hour_cost = self.per_hour_cost_input.text()
-
+        self.last_time = 0
         # 验证输入
         if not capacity or not per_hour_cost:
             QMessageBox.warning(self, '错误', '请输入有效的容量和每小时费用！')
@@ -191,6 +190,9 @@ class ParkingLotApp(QWidget):
         self.plms = parkingLotManagingSystem.parkingLotManagingSystem(capacity, per_hour_cost)
         QMessageBox.information(self, '成功', '停车场已初始化！')
         # 更新状态显示
+        self.capacity_input.clear()
+        self.per_hour_cost_input.clear()
+
         self.update_status()
 
     def arrive_car(self):
@@ -211,17 +213,23 @@ class ParkingLotApp(QWidget):
         except ValueError:
             QMessageBox.warning(self, '错误', '请输入有效的数字！')
             return
+        if car_number <= 0 or entry_time <= 0:
+            QMessageBox.warning(self, '错误', '请输入有效的车牌号和进入时间！')
+            return
         if self.plms.isExist(car_number):
             QMessageBox.warning(self, '错误', '车牌号已存在！')
             return
-        if self.last_time > entry_time:
-            QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+        if self.last_time >= entry_time:
+            QMessageBox.warning(self, '错误', '输入时间必须大于上一次输入的时间！')
             return
         self.last_time = entry_time  # 更新上一次输入的时间
         
         # 车辆到达
         self.plms.arrive(car_number, entry_time)
-        QMessageBox.information(self, '成功', f'车辆 {car_number} 停在 {self.plms.getCount()} 号车位！')
+        if self.plms.getParkingCount() >= self.plms.getCapacity():
+            QMessageBox.information(self, '成功', f'车辆 {car_number} 停在便道 {self.plms.getWaitingCount()} 号车位！')
+        else :
+            QMessageBox.information(self, '成功', f'车辆 {car_number} 停在停车场 {self.plms.getParkingCount()} 号车位！')
         
         self.car_number_input.clear() 
         self.entry_time_input.clear() 
@@ -248,12 +256,15 @@ class ParkingLotApp(QWidget):
         except ValueError:
             QMessageBox.warning(self, '错误', '请输入有效的数字！')
             return
-        if exit_time < self.last_time:
-            QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+        if car_number <= 0 or exit_time <= 0:
+            QMessageBox.warning(self, '错误', '请输入有效的车牌号和离开时间！')
+            return
+        if exit_time <= self.last_time:
+            QMessageBox.warning(self, '错误', '输入时间必须大于上一次输入的时间！')
             return
         self.last_time = exit_time  # 更新上一次输入的时间
         # 检查车辆是否在停车场
-        parked_cars = self.plms.getCount()
+        parked_cars = self.plms.getParkingCount()
         if parked_cars == 0:
             QMessageBox.warning(self, '错误', '停车场中没有车辆！')
             return
@@ -287,12 +298,19 @@ class ParkingLotApp(QWidget):
         try:
             operation, car_number, time = input_text.strip('()').split(',')
             operation = operation.strip().upper()
+            if operation == 'E':
+                # 处理结束操作
+                QMessageBox.information(self, '结束', '输入结束！')
+                self.close()
+                return
             car_number = int(car_number.strip())
             time = int(time.strip())
-
+            if car_number <= 0 or time <= 0:
+                QMessageBox.warning(self, '错误', '输入的车牌号或时间无效！')
+                return
             # 检查时间是否升序
-            if time < self.last_time:
-                QMessageBox.warning(self, '错误', '输入时间必须大于等于上一次输入的时间！')
+            if time <= self.last_time:
+                QMessageBox.warning(self, '错误', '输入时间必须大于上一次输入的时间！')
                 return
             self.last_time = time  # 更新上一次输入的时间
 
@@ -302,12 +320,23 @@ class ParkingLotApp(QWidget):
 
         # 处理操作
         if operation == 'A':
+            if self.plms.isExist(car_number):
+                QMessageBox.warning(self, '错误', '车牌号已存在！')
+                return
             self.plms.arrive(car_number, time)
+            if self.plms.getParkingCount() >= self.plms.getCapacity():
+                QMessageBox.information(self, '成功', f'车辆 {car_number} 停在便道 {self.plms.getWaitingCount()} 号车位！')
+            else :
+                QMessageBox.information(self, '成功', f'车辆 {car_number} 停在停车场 {self.plms.getParkingCount()} 号车位！')
         elif operation == 'D':
-            self.plms.depart(car_number, time)
-        elif operation == 'E':
-            QMessageBox.information(self, '结束', '输入结束！')
-            self.close()
+            if self.plms.getParkingCount() == 0:
+                QMessageBox.warning(self, '错误', '停车场中没有车辆！')
+                return
+            if not self.plms.isExist(car_number):
+                QMessageBox.warning(self, '错误', f'车牌号 {car_number} 不在停车场中！')
+                return
+            cost = self.plms.depart(car_number, time)
+            QMessageBox.information(self, '成功', f'车辆 {car_number} 已离开，停车费用为 {cost}')
         else:
             QMessageBox.warning(self, '错误', '无效的操作类型！')
         # 清空输入框

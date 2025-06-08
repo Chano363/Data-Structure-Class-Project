@@ -28,7 +28,7 @@ PYBIND11_MODULE(parkingLotManagingSystem, m) {
         .def("arrive", &parkingLotManagingSystem::arrive)
         .def("depart", &parkingLotManagingSystem::depart)
         .def("test", &parkingLotManagingSystem::test)
-        .def("getCount", &parkingLotManagingSystem::getCount)
+        .def("getParkingCount", &parkingLotManagingSystem::getParkingCount)
         .def("getCapacity", &parkingLotManagingSystem::getCapacity)
         .def("getPerHourCost", &parkingLotManagingSystem::getPerHourCost)
         .def("getWaitingCount", &parkingLotManagingSystem::getWaitingCount)
