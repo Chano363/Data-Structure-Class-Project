@@ -3,7 +3,7 @@ project(ParkingLotManagingSystem)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_STRIP "")
 
@@ -41,11 +41,19 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# 添加pybind11路径
-list(APPEND CMAKE_PREFIX_PATH "${PYBIND11_PATH}/share/cmake/pybind11")
-
 # 查找Python解释器和开发包
 find_package(Python 3.12 EXACT REQUIRED COMPONENTS Interpreter Development)
+
+# 修改pybind11路径配置
+execute_process(
+    COMMAND python -c "import pybind11; print(pybind11.get_cmake_dir())"
+    OUTPUT_VARIABLE pybind11_DIR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# 设置pybind11路径
+set(pybind11_DIR "${pybind11_DIR}")
+message(STATUS "pybind11_DIR: ${pybind11_DIR}")
 
 # 查找系统安装的pybind11
 find_package(pybind11 REQUIRED)
@@ -75,18 +83,46 @@ add_library(parkingLotManagingSystem_static STATIC
 )
 
 # 添加独立可执行文件
-add_executable(test_exe src/test.cpp)
-target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+if(EXISTS "${CMAKE_SOURCE_DIR}/src/test.cpp")
+    add_executable(test_exe src/test.cpp)
+    target_link_libraries(test_exe PRIVATE parkingLotManagingSystem_static)
+    
+    # 明确设置输出路径
+    set_target_properties(test_exe PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+else()
+    message(WARNING "test.cpp not found, skipping test_exe target")
+endif()
 
 # 设置输出文件后缀为.pyd
 set_target_properties(parkingLotManagingSystem PROPERTIES
     SUFFIX ".pyd"
 )
 
+# 设置输出目录
+find_program(PYINSTALLER pyinstaller)
+if(PYINSTALLER)    
+    add_custom_target(package_python
+        COMMAND ${PYINSTALLER} 
+                --onefile 
+                --windowed
+                --name=ParkingLotSystem
+                --add-data="${CMAKE_BINARY_DIR}/lib/parkingLotManagingSystem.pyd:."
+                --add-data="${CMAKE_SOURCE_DIR}/docs/instructions.txt:."
+                --paths="${CMAKE_SOURCE_DIR}"
+                --distpath=${CMAKE_SOURCE_DIR}/output
+                ${CMAKE_SOURCE_DIR}/main.py
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        COMMENT "打包Python程序为exe"
+        DEPENDS parkingLotManagingSystem
+    )
+else()
+    message(WARNING "未找到pyinstaller，无法创建打包任务")
+endif()
+
 # 设置目标包含目录
 target_include_directories(parkingLotManagingSystem PUBLIC ${CMAKE_SOURCE_DIR}/inc)
-
-# 设置输出目录
 
 
 # 设置编译选项

@@ -5,7 +5,10 @@
 
 using namespace std;
 template<class T>
-Stack<T>::Stack(int size){
+Stack<T>::Stack(int size)
+// size: 栈的大小
+// 初始化栈
+{
     this->size = size;
     top = -1;
     count = 0;
@@ -15,12 +18,17 @@ template<class T>
 Stack<T>::~Stack(){}
 
 template<class T>
-bool Stack<T>::isEmpty(){
+bool Stack<T>::isEmpty() const
+// 判断栈是否为空
+{
     return top == -1; 
 }
 
 template<class T>
-Status Stack<T>::push(T data){
+Status Stack<T>::push(const T& data)
+// data: 要入栈的数据
+// 入栈
+{
     if (top == size - 1){
         cout << "Stack is full" << endl;
         return ERROR;
@@ -33,20 +41,25 @@ Status Stack<T>::push(T data){
 }
 
 template<class T>
-T Stack<T>::pop(){
+T Stack<T>::pop() 
+// 出栈
+{
     if (isEmpty()){
         throw runtime_error("Stack is empty");
     } 
     else {
-        T temp = data[top];
+        T temp = data.back();
         top--;
         count--;
+        data.pop_back();
         return temp; 
     }
 }
 
 template<class T>
-T Stack<T>::peek(){
+T Stack<T>::peek() const
+// 查看栈顶元素
+{
     if (isEmpty()){
         throw runtime_error("Stack is empty");
     } 
@@ -56,7 +69,9 @@ T Stack<T>::peek(){
 }
 
 template<class T>
-int Stack<T>::getCount(){
+int Stack<T>::getCount() const
+// 返回栈中的元素个数
+{
     return count;
 }
 

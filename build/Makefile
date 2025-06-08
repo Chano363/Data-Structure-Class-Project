@@ -154,6 +154,19 @@ test_exe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_exe.dir\build.make CMakeFiles/test_exe.dir/build
 .PHONY : test_exe/fast
 
+#=============================================================================
+# Target rules for targets named package_python
+
+# Build rule for target.
+package_python: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 package_python
+.PHONY : package_python
+
+# fast build rule for target.
+package_python/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\package_python.dir\build.make CMakeFiles/package_python.dir/build
+.PHONY : package_python/fast
+
 src/convert.obj: src/convert.cpp.obj
 .PHONY : src/convert.obj
 
@@ -291,6 +304,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... package_python
 	@echo ... parkingLotManagingSystem
 	@echo ... parkingLotManagingSystem_static
 	@echo ... test_exe

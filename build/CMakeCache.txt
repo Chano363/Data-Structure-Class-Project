@@ -243,6 +243,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Path to a file.
 CONFIG_FILE:FILEPATH=D:/github/Data-Structure-Class-Project/config.cmake
 
+//Path to a program.
+PYINSTALLER:FILEPATH=D:/python3.12.4/Scripts/pyinstaller.exe
+
 //Value Computed by CMake
 ParkingLotManagingSystem_BINARY_DIR:STATIC=D:/github/Data-Structure-Class-Project/build
 
@@ -254,9 +257,6 @@ ParkingLotManagingSystem_SOURCE_DIR:STATIC=D:/github/Data-Structure-Class-Projec
 
 //使用配置文件
 USE_CONFIG_FILE:BOOL=ON
-
-//The directory containing a CMake configuration file for pybind11.
-pybind11_DIR:PATH=D:/python3.12.4/Lib/site-packages/pybind11/share/cmake/pybind11
 
 
 ########################

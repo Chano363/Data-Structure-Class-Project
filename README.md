@@ -40,7 +40,7 @@
 6. **编译项目**
    - 运行python脚本：在命令行中运行 `python build.py`，确保编译成功。
 7. **运行项目**
-   - 运行可执行文件：在命令行中运行 `python main.py`，确保程序正常运行。
+   - 运行可执行文件：在output文件夹下双击`ParkingLotSystem.exe`，确保运行成功。
 
 **注意**
 - 确保环境变量MinGW的bin目录在其他C/C++编译器(如Clang)之前, 否则可能会导致编译错误。

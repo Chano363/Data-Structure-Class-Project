@@ -5,7 +5,7 @@
             "name": "Debug test_exe",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/test_exe.exe", // 指定 test_exe 的路径
+            "program": "${workspaceFolder}/build/bin/test_exe.exe", // 指定 test_exe 的路径
             "args": [], // 可选的命令行参数
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}", // 工作目录

@@ -13,9 +13,9 @@ class Stack
 public:
     Stack(int size);
     ~Stack();
-    bool isEmpty();
-    Status push(T data);
+    bool isEmpty() const;
+    Status push(const T& data);
     T pop();
-    T peek();
-    int getCount();
+    T peek() const;
+    int getCount() const;
 };

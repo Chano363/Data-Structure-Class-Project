@@ -3,86 +3,98 @@
 using namespace std;
 
 parkingLotManagingSystem::parkingLotManagingSystem(int capacity, int perHourCost)
+// capacity: 停车场的容量
+// perHourCost: 每小时的停车费
+// 初始化停车场
 {
     this->capacity = capacity;
     this->perHourCost = perHourCost;
-    waitingQueue = new Queue<ParkingInfo>(capacity);
+    waitingQueue = new Queue<ParkingInfo>(capacity*100);
     parkingStack = new Stack<ParkingInfo>(capacity);
-    exitStack = new Stack<int>(capacity);
 }
 
 parkingLotManagingSystem::~parkingLotManagingSystem()
+// 释放内存
 {
     delete waitingQueue;
     delete parkingStack;
-    delete exitStack;
+}
+
+int parkingLotManagingSystem::getParkingCount()
+// 返回停车场中的车辆数量
+{
+    return parkingStack->getCount();
+}
+
+int parkingLotManagingSystem::getWaitingCount()
+// 返回等待队列中的车辆数量
+{
+    return waitingQueue->getCount();
+}
+
+int parkingLotManagingSystem::getCapacity()
+// 返回停车场的容量
+{
+    return capacity;
+}
+
+int parkingLotManagingSystem::getPerHourCost()
+// 返回每小时的停车费
+{
+    return perHourCost;
 }
 
 vector<ParkingInfo> parkingLotManagingSystem::getWaitingCar()
+// 返回等待队列中的车辆信息
 {
     vector<ParkingInfo> temp;
-    while (!waitingQueue->isEmpty())
-    {
+    Queue<ParkingInfo> tempQueue(capacity);  
+    while (!waitingQueue->isEmpty()) {
         ParkingInfo car = waitingQueue->dequeue();
         temp.push_back(car);
+        tempQueue.enqueue(car); 
     }
-    for (int i = temp.size() - 1; i >= 0; i--)
-    {
-        waitingQueue->enqueue(temp[i]); 
+    while (!tempQueue.isEmpty()) {
+        waitingQueue->enqueue(tempQueue.dequeue());
     }
     return temp;
 }
 
 vector<ParkingInfo> parkingLotManagingSystem::getParkingCar()
+// 返回停车场中的车辆信息
 {
     vector<ParkingInfo> temp;
-    while (!parkingStack->isEmpty())
-    {
-        ParkingInfo car = parkingStack->pop();
-        temp.push_back(car);
+    Stack<ParkingInfo> tempStack(capacity);
+
+    while (!parkingStack->isEmpty()) {
+        tempStack.push(parkingStack->pop());
     }
-    for (int i = temp.size() - 1; i >= 0; i--)
-    {
-        parkingStack->push(temp[i]);
+    
+    while (!tempStack.isEmpty()) {
+        ParkingInfo car = tempStack.pop();
+        temp.push_back(car); 
+        cout << "CarNum:" << car.carNumber << " Entry:" << car.entryTime << endl;
+        parkingStack->push(car);  
     }
+    
     return temp;
 }
 
 bool parkingLotManagingSystem::isExist(int carNumber)
+// carNumber: 车辆编号
+// 判断车辆是否存在
 {
-    Stack<ParkingInfo> tempStack(capacity);
-    bool found = false;
-    while (!parkingStack->isEmpty())
-    {
-        ParkingInfo temp = parkingStack->pop();
-        if (temp.carNumber == carNumber)
-        {
-            found = true;
+    for(int i = 0; i < objectPool.size(); i++) {
+        if(objectPool[i].carNumber == carNumber) {
+            return true; 
         }
-        tempStack.push(temp);
     }
-    while (!tempStack.isEmpty())
-    {
-        parkingStack->push(tempStack.pop());
-    }
-    Queue <ParkingInfo> tempQueue(capacity);
-    while (!waitingQueue->isEmpty())
-    {
-        ParkingInfo temp = waitingQueue->dequeue();
-        if (temp.carNumber == carNumber)
-        {
-            found = true;
-        }
-        tempQueue.enqueue(temp);
-    }
-    while (!tempQueue.isEmpty())
-    {
-        waitingQueue->enqueue(tempQueue.dequeue()); 
-    }
-    return found;
+    return false;
 }
 
 Status parkingLotManagingSystem::setCost(int cost)
+// cost: 每小时的停车费
+// 设置每小时的停车费
 {
     if (cost < 0)
     {
@@ -94,6 +106,8 @@ Status parkingLotManagingSystem::setCost(int cost)
 }
 
 Status parkingLotManagingSystem::setCapacity(int capacity)
+// capacity: 停车场的容量
+// 设置停车场的容量
 {
     if (capacity < 0)
     {
@@ -104,7 +118,7 @@ Status parkingLotManagingSystem::setCapacity(int capacity)
     return OK; 
 }
 
-Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
+int parkingLotManagingSystem::depart(int carNumber, int exitTime)
 {
     if (parkingStack->isEmpty())
     {
@@ -121,6 +135,7 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
         if (temp.carNumber == carNumber)
         {
             found = true;
+            break;
         }
         else
         {
@@ -151,25 +166,44 @@ Status parkingLotManagingSystem::depart(int carNumber, int exitTime)
 
     while (parkingStack->getCount() < capacity && !waitingQueue->isEmpty())
     {
-        parkingStack->push(waitingQueue->dequeue());
+        ParkingInfo car = waitingQueue->dequeue();
+        car.entryTime = exitTime; // 更新车辆的进入时间为当前时间
+        parkingStack->push(car);
     }
-    return OK;
+    for(auto it = objectPool.begin(); it != objectPool.end(); it++){
+        if(it->carNumber == carNumber){
+            objectPool.erase(it);
+            break;
+        } 
+    }
+    return cost;
 }
 
 Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
+// carNumber: 车辆编号
+// entryTime: 车辆进入停车场的时间
+// 车辆进入停车场, 如果停车场已满, 则将车辆加入等待队列
+// 如果停车场未满, 则将车辆加入停车场
 {
+    if (isExist(carNumber))
+    {
+        cout << "Car " << carNumber << " already exists." << endl;
+        return ERROR;
+    }
+    
     ParkingInfo temp;
     temp.carNumber = carNumber;
     temp.entryTime = entryTime;
+    objectPool.push_back(temp);
     if (parkingStack->getCount() < capacity)
     {
-        parkingStack->push(temp);
+        parkingStack->push(objectPool.back());
         cout << "Car " << temp.carNumber << " parked at position " 
              << parkingStack->getCount() << endl;
     }
     else
     {
-        waitingQueue->enqueue(temp);
+        waitingQueue->enqueue(objectPool.back());
         cout << "Car " << temp.carNumber << " waiting in queue at position " 
              << waitingQueue->getCount() << endl;
     }
@@ -177,63 +211,41 @@ Status parkingLotManagingSystem::arrive(int carNumber, int entryTime)
 }
 
 Status parkingLotManagingSystem::test()
+// 测试系统是否正常(调试用)
 {
     cout << "The system is working normally." << endl;
     return OK;
 }
 
 Status parkingLotManagingSystem::display()
+// 显示停车场和等待队列中的车辆信息(调试用)
 {
     cout << "Hourly parking fee: " << perHourCost << endl;
     cout << "Parking lot capacity: " << capacity << endl;
     cout << "Number of parked cars: " << parkingStack->getCount() << endl;
     cout << "Number of cars in waiting queue: " << waitingQueue->getCount() << endl;
-    
+    vector<ParkingInfo> tempParking = getParkingCar();
+    vector<ParkingInfo> tempWaiting = getWaitingCar();
     if(parkingStack->getCount() == 0){
         cout << "No cars in parking lot" << endl;
     }
     else {
         cout << "Parked cars:" << endl;
-        for(int i = 0; i < parkingStack->getCount(); i++)
-        {
-            ParkingInfo temp = parkingStack->pop();
-            cout << "Car " << temp.carNumber << " at position " << i << endl;
-            parkingStack->push(temp);
+        for(int i = 0; i < tempParking.size(); i++){
+            ParkingInfo car = tempParking[i];
+            cout << "Car " << car.carNumber << " parked at position " << i << endl;
         }
     }
-    
     if(waitingQueue->getCount() == 0)
     {
         cout << "No cars in waiting queue" << endl;
     }
     else {
         cout << "Cars in waiting queue:" << endl;
-        for(int i = 0; i < waitingQueue->getCount(); i++)
-        {
-            ParkingInfo temp = waitingQueue->dequeue();
-            cout << "Car " << temp.carNumber << " at position " << i << endl;
-            waitingQueue->enqueue(temp);
-        } 
+        for(auto car : tempWaiting){
+            cout << "Car " << car.carNumber << " waiting in queue at position " << waitingQueue->getCount() << endl; 
+        }
     }
     return OK;
 }
 
-int parkingLotManagingSystem::getCount()
-{
-    return parkingStack->getCount();
-}
-
-int parkingLotManagingSystem::getCapacity()
-{
-    return capacity;
-}
-
-int parkingLotManagingSystem::getPerHourCost()
-{
-    return perHourCost;
-}
-
-int parkingLotManagingSystem::getWaitingCount()
-{
-    return waitingQueue->getCount();
-}
