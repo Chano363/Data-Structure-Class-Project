@@ -166,7 +166,9 @@ int parkingLotManagingSystem::depart(int carNumber, int exitTime)
 
     while (parkingStack->getCount() < capacity && !waitingQueue->isEmpty())
     {
-        parkingStack->push(waitingQueue->dequeue());
+        ParkingInfo car = waitingQueue->dequeue();
+        car.entryTime = exitTime; // 更新车辆的进入时间为当前时间
+        parkingStack->push(car);
     }
     for(auto it = objectPool.begin(); it != objectPool.end(); it++){
         if(it->carNumber == carNumber){
