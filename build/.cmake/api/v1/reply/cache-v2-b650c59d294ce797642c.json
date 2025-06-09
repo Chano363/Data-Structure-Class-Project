@@ -1322,6 +1322,18 @@
 			"value" : "D:/python3.12.4/python.exe"
 		},
 		{
+			"name" : "PYINSTALLER",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/python3.12.4/Scripts/pyinstaller.exe"
+		},
+		{
 			"name" : "PYTHON_IS_DEBUG",
 			"properties" : 
 			[

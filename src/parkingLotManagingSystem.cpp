@@ -119,6 +119,10 @@ Status parkingLotManagingSystem::setCapacity(int capacity)
 }
 
 int parkingLotManagingSystem::depart(int carNumber, int exitTime)
+// carNumber: 车辆编号
+// exitTime: 车辆离开停车场的时间
+// 车辆离开停车场, 如果停车场中没有该车辆, 则返回ERROR
+// 如果停车场中有该车辆, 则计算停车费用并返回
 {
     if (parkingStack->isEmpty())
     {

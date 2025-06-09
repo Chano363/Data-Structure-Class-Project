@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/test_exe.exe"
+			"path" : "bin/test_exe.exe"
 		},
 		{
-			"path" : "lib/test_exe.pdb"
+			"path" : "bin/test_exe.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -29,19 +29,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 78,
+				"line" : 87,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 79,
+				"line" : 88,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 54,
+				"line" : 62,
 				"parent" : 0
 			}
 		]
